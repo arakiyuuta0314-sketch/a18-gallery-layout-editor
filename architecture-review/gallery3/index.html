@@ -4,88 +4,102 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>A18 展示室3｜建築背景 比較プレビュー</title>
+<title>A18 展示室3｜v09 通路と額縁サイズの確認</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:#203128;background:#f5f4ef}
-*{box-sizing:border-box}
-body{margin:0}main{max-width:1100px;margin:auto;padding:20px 15px 44px}
-h1{font-size:clamp(1.25rem,4vw,1.75rem);margin:6px 0 7px}
-p{line-height:1.65}small,.muted{color:#69746e}
-.kicker{font-size:.75rem;font-weight:700;letter-spacing:.12em;color:#426b53}
-.panel{background:white;border:1px solid #e2e6df;border-radius:14px;padding:12px;margin:16px 0;box-shadow:0 2px 9px #16271d0d}
-.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
-button{border:1px solid #b9c9bc;background:white;border-radius:9px;color:#234a33;padding:10px 16px;font-weight:700;font-size:.94rem;cursor:pointer}
-button[aria-pressed=true]{background:#1c6241;color:white;border-color:#1c6241}
-.photo{position:relative;aspect-ratio:930/582;overflow:hidden;background:#070809;touch-action:pan-x pan-y}
-.photo>img{display:block;width:100%;height:100%;object-fit:contain}
-.photo.compare>img.before{position:absolute;inset:0;z-index:2;clip-path:inset(0 calc(100% - var(--pos, 50%)) 0 0)}
-.photo.compare .rule{position:absolute;z-index:3;left:var(--pos, 50%);top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 4px #000;pointer-events:none}
-.photo.compare .rule:after{content:"↔";position:absolute;left:-18px;top:50%;width:38px;height:38px;display:grid;place-items:center;transform:translateY(-50%);border-radius:50%;background:#fff;color:#1a4d35;font-size:22px}
-.photo.single .before,.photo.single .rule{display:none}
-.photo.onlybefore .after,.photo.onlybefore .rule{display:none}
-.photo.onlybefore .before{display:block;clip-path:none;position:static}
-.slider{width:100%;height:32px;accent-color:#1b6843;margin:7px 0 0}
-.control-label{display:block;font-size:.9rem;font-weight:600;margin-top:8px}
-.info{margin:11px 1px 0;color:#617269;font-size:.89rem}
-.links{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
-a.outlink{color:#205c3d;border:1px solid #c7d7c9;border-radius:8px;padding:10px 12px;text-decoration:none;font-weight:650;background:#fafdfb;font-size:.87rem}
-ul{line-height:1.7;padding-left:1.5em}
-.note{font-size:.85rem;border-top:1px solid #e0e7df;margin-top:15px;padding-top:10px;color:#657268}
-@media(max-width:560px){main{padding:15px 9px 36px}.panel{padding:8px;border-radius:9px}button{padding:11px 10px;font-size:.89rem;flex:1}.photo{border-radius:5px}.links{display:grid;grid-template-columns:1fr 1fr}.outlink{text-align:center}}
+*{box-sizing:border-box}body{margin:0}main{max-width:1100px;margin:auto;padding:20px 15px 42px}
+.kicker{font-size:.73rem;font-weight:700;letter-spacing:.12em;color:#436a52}
+h1{font-size:clamp(1.22rem,4vw,1.78rem);line-height:1.45;margin:6px 0 8px}
+h2{font-size:1.04rem;margin:0 0 9px}p{line-height:1.66}small,.muted{color:#66736c}
+.panel{background:#fff;border:1px solid #e0e6df;border-radius:14px;padding:13px;margin:15px 0;box-shadow:0 2px 9px #1024190d}
+.toolbar{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 13px}
+button{border:1px solid #b9c9bc;background:#fff;border-radius:9px;color:#234a33;padding:10px 15px;font-weight:700;font-size:.9rem;cursor:pointer}
+button[aria-pressed=true]{background:#1c6241;color:#fff;border-color:#1c6241}
+.photo{position:relative;aspect-ratio:930/582;overflow:hidden;background:#070809;border-radius:5px}
+.photo img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.photo img.old{display:none}
+.photo.compare img.old{display:block;z-index:2;clip-path:inset(0 calc(100% - var(--pos, 50%)) 0 0)}
+.rule{display:none;position:absolute;z-index:3;top:0;bottom:0;left:var(--pos,50%);width:2px;background:#fff;box-shadow:0 0 4px #000;pointer-events:none}
+.photo.compare .rule{display:block}
+.photo.compare .rule:after{content:"↔";position:absolute;left:-18px;top:50%;width:38px;height:38px;border-radius:50%;background:#fff;color:#246b44;display:grid;place-items:center;font-size:22px;transform:translateY(-50%)}
+.slider{width:100%;height:32px;accent-color:#1c6241}
+label{display:block;font-size:.87rem;font-weight:650;margin:9px 0 0}
+.note{font-size:.86rem;color:#66736c;border-top:1px solid #e1e8e1;padding-top:12px;margin-top:12px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+a.outlink{color:#1b5940;text-decoration:none;border:1px solid #c9d7cb;background:#fafcf9;padding:9px 12px;border-radius:8px;font-weight:650;font-size:.87rem}
+.detail{display:block;width:100%;height:auto;border-radius:5px;background:#070809}
+ul{padding-left:1.3em;line-height:1.8;margin:6px 0}
+@media(max-width:560px){main{padding:15px 9px 32px}.panel{padding:8px;border-radius:9px}button{padding:11px 7px;flex:1;min-width:calc(50% - 5px);font-size:.83rem}.links{display:grid;grid-template-columns:1fr 1fr}.outlink{text-align:center;font-size:.79rem;padding:10px 4px}}
 </style>
 </head>
 <body>
 <main>
-<div class="kicker">とっておき美術館　/　建築背景確認</div>
-<h1>展示室3｜凹みの木製腰板と柱の立体感</h1>
-<p class="muted">側面上部はv07の灰茶色の壁素材を維持し、下部に正面壁と同じ木製腰板を取り付けました。柱の角の陰影も残したv08です。</p>
+<div class="kicker">とっておき美術館 / 建築背景・展示枠確認</div>
+<h1>展示室3｜展示室1への通路と額縁サイズ v09</h1>
+<p class="muted">凸型の構造・左右側壁の木材と柱の立体感はv08を維持。下中央の通路と中央額縁②だけを見直しています。</p>
 <section class="panel">
-<div class="toolbar" role="group" aria-label="表示切り替え">
-<button type="button" data-mode="single" aria-pressed="true">修正版 v08</button>
-<button type="button" data-mode="onlybefore" aria-pressed="false">前回 v07</button>
-<button type="button" data-mode="compare" aria-pressed="false">比較する</button>
+<div class="toolbar" role="group" aria-label="プレビュー表示切り替え">
+<button data-mode="full" type="button" aria-pressed="true">全体（5枠）</button>
+<button data-mode="rear" type="button" aria-pressed="false">奥壁（3枠）</button>
+<button data-mode="base" type="button" aria-pressed="false">建築背景のみ</button>
+<button data-mode="compare" type="button" aria-pressed="false">中央②を比較</button>
 </div>
-<div id="photo" class="photo single" style="--pos:50%" aria-label="展示室3の建築背景">
-<img class="after" src="../../qa/architecture-bases-20261029/gallery3_v08_wood_lower_returns_3d_columns_REVIEW.png" alt="修正版v08：凹みの左右側面下部に正面壁と同じ木製腰板を使い、柱の角の立体感を残した背景" fetchpriority="high">
-<img class="before" src="../../qa/architecture-bases-20261029/gallery3_v07_existing_nonblack_wall_material_REVIEW.png" alt="前回v07：凹み側面の下部まで灰茶色の壁になっている背景">
+<div id="photo" class="photo" style="--pos:50%" aria-label="展示室3 v09 レイアウト監修用画像">
+<img id="mainImage" class="new" src="../../qa/architecture-bases-20261029/gallery3_v09_five_frames_full_layout_REVIEW.png" alt="展示室3 v09。展示壁5枚、奥中央の小さく調整した額縁、下中央に展示室1への入口" fetchpriority="high">
+<img id="oldImage" class="old" src="../../qa/architecture-bases-20261029/gallery3_v09_before_old_center_full_layout_REVIEW.png" alt="比較用：以前の横長の中央額縁252×110ピクセル">
 <div class="rule" aria-hidden="true"></div>
 </div>
 <div id="sliderWrap" hidden>
-<label for="balance" class="control-label">左右の比較位置を動かす（左が前回v07、右が修正版v08）</label>
+<label for="balance">左：以前の中央額縁（252×110）／右：新案（196×104）</label>
 <input id="balance" class="slider" type="range" min="0" max="100" value="50">
 </div>
 <div class="links">
-<a class="outlink" href="../../qa/architecture-bases-20261029/gallery3_v08_wood_lower_returns_3d_columns_REVIEW.png" target="_blank" rel="noopener">修正版を大きく開く</a>
-<a class="outlink" href="../../qa/architecture-bases-20261029/gallery3_v07_existing_nonblack_wall_material_REVIEW.png" target="_blank" rel="noopener">前回v07を大きく開く</a>
+<a id="openMain" class="outlink" href="../../qa/architecture-bases-20261029/gallery3_v09_five_frames_full_layout_REVIEW.png" target="_blank" rel="noopener">現在の画像を拡大</a>
+<a class="outlink" href="../../qa/architecture-bases-20261029/gallery3_v09_rear_frame_size_comparison_REVIEW.png" target="_blank" rel="noopener">額縁の比較画像</a>
 </div>
 </section>
 <section class="panel">
-<strong>今回確認してほしい点</strong>
-<ul>
-<li>側面の上部はv07の灰茶色、下部は正面の木製腰板と同じ実素材。柱の角には細い側面と陰影を残します</li>
-<li>右側の通路位置、開口サイズ、扉なしの状態はv07のまま</li>
-<li>凸型の黒枠・奥行き・左右の軒・展示枠・中央下の入口は変更していません</li>
-</ul>
-<div class="note"><a href="../../rooms/gallery3/gallery3_architecture_only_E.png" target="_blank" rel="noopener">承認済みE案の建築原本も確認できます。</a> 建築背景のみの監修用プレビューです。奥壁3枠とハの字独立壁2枚の配置は維持。ゲームへの組み込み・通行判定は未実施です。</div>
+<h2>① 展示室1へつながる下中央の通路</h2>
+<p>今までは黒枠が途中で切れているだけでした。今回は木製の縁と床続きの開口に変更し、通路を視認できるようにしています。</p>
+<img class="detail" src="../../qa/architecture-bases-20261029/gallery3_v08_v09_south_entrance_detail_REVIEW.png" alt="左v08は下中央の通路が分かりにくく、右v09は木製の縁があり床続きの開口として分かる比較図" loading="lazy">
+<p class="muted" style="font-size:.85rem;margin:8px 0 0">左：v08／右：v09。緑のカーペットは使っていません。</p>
 </section>
 <section class="panel">
-<h2 style="font-size:1rem;margin:4px 0 10px">凹みの側面を拡大して比較</h2>
-<img src="../../qa/architecture-bases-20261029/gallery3_v08_wood_sidewalls_detail_COMPARISON.png" alt="左に前回v07の平らな側面、右にv08の木製腰板と柱側面を並べた比較画像" style="display:block;width:100%;height:auto;border-radius:6px">
-<p class="muted" style="margin:8px 0 0;font-size:.86rem">左：v07 / 右：v08</p>
+<h2>② 真ん中の額縁サイズ</h2>
+<ul>
+<li>左①：162 × 86px（維持）</li>
+<li>中央②：<strong>252 × 110px → 196 × 104px</strong>（提案）</li>
+<li>右③：153 × 86px（維持）</li>
+</ul>
+<p>中央は左①より幅約21%、高さ約21%大きくしています。①と②の縦横比をほぼ揃え、作品画像を横方向に伸ばす配置を避けます。実際の作品表示でも縦横比を維持し、枠の中に収める必要があります。</p>
+<div class="note">監修用画像です。奥壁の3枠は比較用の仮表示、独立展示壁④⑤の承認位置は維持しています。正式なroom.json・ゲーム本体の素材や通行判定は変更していません。ユーザー確認後に採用値を反映します。</div>
 </section>
 </main>
 <script>
-(function(){
-const photo=document.getElementById('photo'),slider=document.getElementById('balance'),sliderWrap=document.getElementById('sliderWrap');
-document.querySelectorAll('[data-mode]').forEach(btn=>{
- btn.addEventListener('click',()=>{
-  const mode=btn.dataset.mode;
-  photo.className='photo '+mode;
-  sliderWrap.hidden=mode!=='compare';
-  document.querySelectorAll('[data-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));
+(()=>{
+const path="../../qa/architecture-bases-20261029/";
+const images={
+ full:"gallery3_v09_five_frames_full_layout_REVIEW.png",
+ rear:"gallery3_v09_rear_frames_balanced_REVIEW.png",
+ base:"gallery3_v09_architecture_south_passage_REVIEW.png",
+ compare:"gallery3_v09_five_frames_full_layout_REVIEW.png"
+};
+const panel=document.getElementById("photo");
+const main=document.getElementById("mainImage");
+const link=document.getElementById("openMain");
+const slider=document.getElementById("balance");
+const sliderWrap=document.getElementById("sliderWrap");
+document.querySelectorAll("[data-mode]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+   const mode=btn.dataset.mode;
+   main.src=path+images[mode];
+   link.href=path+images[mode];
+   panel.classList.toggle("compare",mode==="compare");
+   sliderWrap.hidden=mode!=="compare";
+   document.querySelectorAll("[data-mode]").forEach(x=>x.setAttribute("aria-pressed",String(x===btn)));
  });
 });
-slider.addEventListener('input',()=>photo.style.setProperty('--pos',slider.value+'%'));
+slider.addEventListener("input",()=>panel.style.setProperty("--pos",slider.value+"%"));
 })();
 </script>
 </body>

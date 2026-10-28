@@ -1,0 +1,74 @@
+{
+  "schema": "a18-gallery3-architecture-frame-review/v1",
+  "roomId": "gallery3",
+  "canvas": {
+    "width": 930,
+    "height": 582
+  },
+  "architectureReference": "architecture-bases-20261029/gallery3_v09_architecture_south_passage_REVIEW.png",
+  "rearFrameSource": "rooms/gallery3/gallery3_layout_G_rear_frames.png",
+  "approvedFrames": [
+    {
+      "id": 1,
+      "x": 74,
+      "y": 78,
+      "w": 162,
+      "h": 86
+    },
+    {
+      "id": 2,
+      "x": 348,
+      "y": 65,
+      "w": 252,
+      "h": 110
+    },
+    {
+      "id": 3,
+      "x": 719,
+      "y": 78,
+      "w": 153,
+      "h": 86
+    }
+  ],
+  "proposedFrames": [
+    {
+      "id": 1,
+      "x": 74,
+      "y": 78,
+      "w": 162,
+      "h": 86
+    },
+    {
+      "id": 2,
+      "x": 376,
+      "y": 68,
+      "w": 196,
+      "h": 104
+    },
+    {
+      "id": 3,
+      "x": 719,
+      "y": 78,
+      "w": 153,
+      "h": 86
+    }
+  ],
+  "imageInsertionRule": "Preserve artwork aspect ratio; scale to fit inside frame, never stretch",
+  "independentWallPositions": [
+    {
+      "id": "wall4",
+      "x": 119,
+      "y": 270,
+      "w": 232,
+      "h": 198
+    },
+    {
+      "id": "wall5",
+      "x": 578,
+      "y": 270,
+      "w": 232,
+      "h": 198
+    }
+  ],
+  "approval": "PENDING - no room.json or game asset changed"
+}
