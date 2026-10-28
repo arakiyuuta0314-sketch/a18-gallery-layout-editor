@@ -23,7 +23,7 @@
     },
     {
       "id": "gallery5",
-      "name": "展示室5（E案の外観承認・枠数は実装時要整理）",
+      "name": "展示室5（E案・正式3枠決定／ゲーム未実装）",
       "config": "rooms/gallery5/room.json"
     }
   ]

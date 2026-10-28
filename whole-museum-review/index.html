@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#203e33">
+<title>A18 とっておき美術館｜全館レイアウト監修</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;color:#24362e;background:#f6f3ec}
+*{box-sizing:border-box}body{margin:0}header{padding:24px max(18px,calc((100vw - 1380px)/2));background:#203e33;color:#f9f4e9}
+header h1{font-size:clamp(21px,3vw,30px);margin:0 0 9px}header p{font-size:13px;line-height:1.7;color:#e7e8dd;margin:0}
+main{max-width:1440px;margin:auto;padding:24px 16px 40px}h2{font-size:17px;margin:8px 0 16px}
+.museum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{overflow:hidden;background:white;border-radius:11px;border:1px solid #d6cdbf}
+.card .head{padding:13px 15px 11px;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px}
+.card h3{font-size:17px;margin:0}.card span{font-size:12px;color:#68665e}
+.card img{display:block;width:100%;height:auto;aspect-ratio:930/582;object-fit:contain;background:#234236}
+.card img.entrance{object-fit:contain}
+.card a{display:block;color:inherit;text-decoration:none}.card a:focus-visible{outline:4px solid #a18a53;outline-offset:-4px}
+.card p{margin:8px 13px 14px;color:#696660;font-size:12px;line-height:1.65}
+.note{margin-top:22px;padding:17px 20px;border-top:1px solid #c7b9a4;color:#51564e;font-size:13px;line-height:1.9}
+.links{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.links a{border:1px solid #b9a98f;padding:9px 13px;border-radius:7px;text-decoration:none;color:#285143;background:white;font-size:13px}
+@media(max-width:760px){main{padding:14px 12px 35px}.museum{grid-template-columns:1fr;gap:15px}.card h3{font-size:18px}header{padding:21px 15px}}
+</style></head>
+<body>
+<header>
+<h1>とっておき美術館｜全館レイアウト一覧</h1>
+<p>監修用の承認済み構図を、正しい館内の接続関係に沿って並べました。スマホでは上から順に表示します。写真をタップすると拡大できます。</p>
+</header>
+<main>
+<h2>上段：展示室3 → 展示室5 → 展示室4　／　下段：展示室1 → エントランス → 展示室2</h2>
+<div class="museum">
+<article class="card"><div class="head"><h3>展示室3</h3><span>Lv.4・G案｜5枠</span></div><a href="gallery3_approved_layout.png"><img src="gallery3_approved_layout.png" alt="展示室3。中央奥に大きな額縁、手前左右にハの字型展示壁"></a><p>奥まった中央壁と、左右の斜め展示壁が特徴。</p></article>
+<article class="card"><div class="head"><h3>展示室5</h3><span>Lv.6・E案｜正式3枠（未実装）</span></div><a href="gallery5_approved_layout.png"><img src="gallery5_approved_layout.png" alt="展示室5。ワインレッドの絨毯と宮殿風の柱、中央の大額縁と左右2額"></a><p>最後の特別室。豪華さはE案で固定。ゲームの5→3枠変更は後日対応。</p></article>
+<article class="card"><div class="head"><h3>展示室4</h3><span>Lv.5・A案｜5枠</span></div><a href="gallery4_approved_layout.png"><img src="gallery4_approved_layout.png" alt="展示室4。奥壁に縦横4枠、室内右側に横長展示壁"></a><p>奥壁4枠＋室内1枠。縦横混在の外形を採用し、装飾候補は保留。</p></article>
+<article class="card"><div class="head"><h3>展示室1</h3><span>Lv.2・配置承認｜5枠</span></div><a href="gallery1_approved_layout.png"><img src="gallery1_approved_layout.png" alt="展示室1。奥壁3枠、手前2枠と中央の案内台"></a><p>奥壁3枠＋手前2枠。中央には小さな案内台。</p></article>
+<article class="card"><div class="head"><h3>エントランス</h3><span>Lv.1〜Lv.6・画像は承認済みLv.6</span></div><a href="entrance_approved_lv6.png"><img class="entrance" src="entrance_approved_lv6.png" alt="承認済みエントランスLv.6。受付、絨毯、植物、額縁、案内看板"></a><p>Lv.6の承認画像をそのまま掲載。撮影時のLv.1操作UIが写っています。</p></article>
+<article class="card"><div class="head"><h3>展示室2</h3><span>Lv.3・A案｜5枠</span></div><a href="gallery2_approved_layout.png"><img src="gallery2_approved_layout.png" alt="展示室2。奥壁2枠、手前に独立展示壁が3枠"></a><p>奥壁2枠＋手前に3枠。中央をずらしたレイアウト。</p></article>
+</div>
+<div class="links">
+<a href="whole_museum_map_3x2.png">全館6室を1枚で見る</a>
+<a href="../?room=gallery3">個別の展示室プレビューを開く</a>
+</div>
+<div class="note">
+<b>設計・ゲーム実装の区別</b>：このページは監修済みレイアウトの全景比較です。作品写真の表示・スタッフ・歩行・当たり判定・前後レイヤーは別途実装／検証します。
+展示室5の正式枠数は3枠ですが、現在のゲームデータは5枠のままです。入口は別リポジトリの承認済みLv.6画像をハッシュ検証して引用しました。過去の比較試作は採用案と区別して保管しています。
+</div></main>
+</body></html>

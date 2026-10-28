@@ -1,0 +1,66 @@
+{
+  "schema": "a18-whole-museum-review/v1",
+  "source": "approved layout configs and entrance approved Lv6 image",
+  "reviewOnly": true,
+  "order": [
+    "gallery3",
+    "gallery5",
+    "gallery4",
+    "gallery1",
+    "entrance",
+    "gallery2"
+  ],
+  "approvedTargets": {
+    "entrance": 3,
+    "gallery1": 5,
+    "gallery2": 5,
+    "gallery3": 5,
+    "gallery4": 5,
+    "gallery5": 3,
+    "total": 26
+  },
+  "runtime": {
+    "currentTotalFrames": 28,
+    "currentGallery5Frames": 5,
+    "status": "deferred implementation"
+  },
+  "entranceApprovedSha256": "1a058e8fe4f9f39659b4c31b1627d8dba44f080acb42607d99a39481eaa48349",
+  "rooms": [
+    {
+      "id": "gallery3",
+      "title": "展示室3",
+      "subtitle": "Lv.4｜G案・5枠",
+      "preview": "gallery3_approved_layout.png"
+    },
+    {
+      "id": "gallery5",
+      "title": "展示室5",
+      "subtitle": "Lv.6｜E案・正式3枠（未実装）",
+      "preview": "gallery5_approved_layout.png"
+    },
+    {
+      "id": "gallery4",
+      "title": "展示室4",
+      "subtitle": "Lv.5｜A案・5枠",
+      "preview": "gallery4_approved_layout.png"
+    },
+    {
+      "id": "gallery1",
+      "title": "展示室1",
+      "subtitle": "Lv.2｜配置承認・5枠",
+      "preview": "gallery1_approved_layout.png"
+    },
+    {
+      "id": "entrance",
+      "title": "エントランス",
+      "subtitle": "Lv.1〜6｜画像はLv.6正式デザイン",
+      "preview": "entrance_approved_lv6.png"
+    },
+    {
+      "id": "gallery2",
+      "title": "展示室2",
+      "subtitle": "Lv.3｜配置承認・5枠",
+      "preview": "gallery2_approved_layout.png"
+    }
+  ]
+}

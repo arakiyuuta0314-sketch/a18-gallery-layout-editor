@@ -8,12 +8,15 @@ import json
 root=Path(__file__).resolve().parents[1]
 room=json.loads((root/'rooms/gallery5/room.json').read_text(encoding='utf-8'))
 assert room['id']=='gallery5'
-assert room['frameCount']==5
+assert room['frameCount']==5  # actual game remains unchanged
+assert room['approvedTargetFrameCount']==3
+assert room['targetMuseumFixtureCount']==26
+assert room['frameCountChangeStatus']=='DECIDED_NOT_IMPLEMENTED'
 assert room['previewArtworkCount']==3 and room['background'].endswith('gallery5_palace_E.png')
 assert room['entrance'].startswith('南') and room['exit'].startswith('西')
 assert '東' in room['exit'] and len(room['objects'])==0
 assert room['layoutRevision']=='gallery5-palace-E-visual-approved-20261029'
-assert room['status'].startswith('E palace visual design approved')
+assert room['status'].startswith('E palace design and target 3 display fixtures approved')
 for name in ('gallery5_concept_A.png','gallery5_concept_B.png','gallery5_architecture_only.png',
              'gallery5_heavy_C.png','gallery5_heavy_D.png','gallery5_heavy_architecture_C.png',
              'gallery5_palace_E.png','gallery5_palace_F.png','gallery5_palace_architecture_E.png'):

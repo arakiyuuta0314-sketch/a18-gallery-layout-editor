@@ -2,7 +2,7 @@
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery5",
   "name": "展示室5",
-  "subtitle": "E案の重厚な内装を採用｜表示は3額・正式枠数は要設計",
+  "subtitle": "E案採用｜展示枠は正式に3枠へ変更（ゲーム実装は後工程）",
   "previewFocusX": 465,
   "mobileOverview": true,
   "size": {
@@ -15,14 +15,17 @@
   "foreground": "rooms/gallery3/foreground.png",
   "objects": [],
   "layoutRevision": "gallery5-palace-E-visual-approved-20261029",
-  "status": "E palace visual design approved, no further ornament; 3 visible frames, 5 logical game fixtures unchanged",
+  "status": "E palace design and target 3 display fixtures approved; current game still has 5 until later implementation",
   "frameCount": 5,
+  "approvedTargetFrameCount": 3,
+  "targetMuseumFixtureCount": 26,
+  "frameCountChangeStatus": "DECIDED_NOT_IMPLEMENTED",
   "previewArtworkCount": 3,
   "proposals": {
     "A": "five rear frames in one row, center 3 enlarged",
     "B": "two-tier side pairs around a large center frame 3",
-    "E": "approved palace visual design with 3 pictured frames; actual fixture count undecided",
+    "E": "approved palace visual and official 3-frame target; game implementation explicitly deferred",
     "F": "unselected comparison retaining 5 pictured frames"
   },
-  "notes": "E (3 displays) and F (5 displays) extend C/D into palace architecture with wood, pilasters, gold accents, sconces and crimson runner. Previous A/B and C/D designs preserved separately. The game still retains five logical fixtures, 28 in total; no code, staff, collision or progression updates."
+  "notes": "2026-10-29 decision: Gallery5 official target 3 frames (museum total 26), but defer all source/schema/progression changes. Current game 5 fixtures in this room and total 28 remain unchanged. Keep existing fixture IDs intact until migration design is approved. E architecture adopted, F and A-D only historical comparisons."
 }
