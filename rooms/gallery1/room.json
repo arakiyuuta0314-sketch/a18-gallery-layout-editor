@@ -2,7 +2,7 @@
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery1",
   "name": "展示室1",
-  "subtitle": "B案・案内台175px／奥の出口は展示室3",
+  "subtitle": "採用配置・案内台135px×76px／北側出口は展示室3",
   "size": {
     "width": 930,
     "height": 582
@@ -17,8 +17,8 @@
       "label": "展示壁④",
       "image": "rooms/gallery1/wall4.png",
       "rect": {
-        "x": 132,
-        "y": 328,
+        "x": 102,
+        "y": 275,
         "w": 240,
         "h": 182
       }
@@ -28,8 +28,8 @@
       "label": "展示壁⑤",
       "image": "rooms/gallery1/wall5.png",
       "rect": {
-        "x": 628,
-        "y": 286,
+        "x": 636,
+        "y": 326,
         "w": 240,
         "h": 182
       }
@@ -37,12 +37,12 @@
     {
       "id": "counter",
       "label": "案内台",
-      "image": "rooms/gallery1/counter175.png",
+      "image": "rooms/gallery1/counter135_staff.png",
       "rect": {
         "x": 425,
-        "y": 396,
-        "w": 175,
-        "h": 96
+        "y": 339,
+        "w": 135,
+        "h": 76
       }
     }
   ],
@@ -53,5 +53,12 @@
     "bottom": 14,
     "clearRearCorridorY": 275
   },
-  "origin": "A18 official entrance Lv1 materials + gallery1 v05 P layout; concept editor, not game data"
+  "origin": "User layout JSON 2026-10-28; preserved coordinates except centered counter width and provisional height",
+  "layoutRevision": "v07-user-positions-counter135-staff-space",
+  "staffPlacement": {
+    "status": "not placed",
+    "intent": "place staff behind the guide desk later",
+    "counterResize": "height 96px -> 76px provisional to reveal staff; top y=339 preserved",
+    "staffArt": "not chosen"
+  }
 }

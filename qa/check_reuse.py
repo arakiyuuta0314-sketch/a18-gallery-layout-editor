@@ -14,14 +14,14 @@ with TemporaryDirectory(prefix='a18-layout-room-reuse-') as tmp:
     (root/'rooms/testroom').mkdir(parents=True)
     for name in ['index.html','editor.js']:
         copy2(SOURCE/name,root/name)
-    for name in ['architecture.png','side-walls.png','counter175.png']:
+    for name in ['architecture.png','side-walls.png','counter135_staff.png']:
         copy2(SOURCE/'rooms/gallery1'/name,root/'rooms/testroom'/name)
     for p in (SOURCE/'rooms/gallery1').glob('*'):
         copy2(p,root/'rooms/gallery1'/p.name)
     config=json.loads((SOURCE/'rooms/gallery1/room.json').read_text('utf8'))
     config.update(id='testroom',name='仮テスト展示室',subtitle='実サイトには公開しないQA用')
-    config['objects']=[{'id':'fixture-alpha','label':'仮配置設備','image':'rooms/testroom/counter175.png',
-                         'rect':{'x':200,'y':380,'w':175,'h':96}}]
+    config['objects']=[{'id':'fixture-alpha','label':'仮配置設備','image':'rooms/testroom/counter135_staff.png',
+                         'rect':{'x':200,'y':380,'w':135,'h':76}}]
     config['background']='rooms/testroom/architecture.png'
     config['foreground']='rooms/testroom/side-walls.png'
     (root/'rooms/testroom/room.json').write_text(json.dumps(config,ensure_ascii=False),encoding='utf8')
@@ -50,7 +50,7 @@ with TemporaryDirectory(prefix='a18-layout-room-reuse-') as tmp:
             page.locator('#room-select').select_option('gallery1')
             page.wait_for_function('window.__A18_LAYOUT_EDITOR__.getState().roomId==="gallery1"')
             assert list(get()['objects'])==['wall4','wall5','counter']
-            assert get()['objects']['counter']['w']==175
+            assert get()['objects']['counter']['w']==135 and get()['objects']['counter']['h']==76
             page.locator('#room-select').select_option('testroom')
             page.wait_for_function('window.__A18_LAYOUT_EDITOR__.getState().roomId==="testroom"')
             assert get()['objects']['fixture-alpha']['x']==210

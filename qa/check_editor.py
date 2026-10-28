@@ -24,7 +24,7 @@ try:
    state=lambda:page.evaluate('window.__A18_LAYOUT_EDITOR__.getState()')
    s=state()
    assert s['roomId']=='gallery1'
-   assert s['objects']['counter']==dict(x=425,y=396,w=175,h=96)
+   assert s['objects']['counter']==dict(x=425,y=339,w=135,h=76)
    assert page.locator('[data-object]').count()==3
    assert page.locator('#warning').inner_text()==''
    assert page.locator('#stage img').count()==5
@@ -44,10 +44,10 @@ try:
    assert rect and rect['width']>100,(w,rect)
    x=rect['x']+rect['width']*.5;y=rect['y']+rect['height']*.65
    page.mouse.move(x,y);page.mouse.down();page.mouse.move(x-24,y+8,steps=5);page.mouse.up()
-   assert state()['objects']['wall5']['x']==598,state()['objects']['wall5']
+   assert state()['objects']['wall5']['x']==606 and state()['objects']['wall5']['y']==336,state()['objects']['wall5']
    page.reload(wait_until='networkidle')
    page.wait_for_function('typeof window.__A18_LAYOUT_EDITOR__ === "object"',timeout=10000)
-   assert state()['objects']['wall5']['x']==598
+   assert state()['objects']['wall5']['x']==606
    page.locator('summary').click();page.locator('#show-import').click()
    bad=state();bad['objects']['counter']['w']=205
    page.locator('#json-text').fill(json.dumps(bad))
@@ -55,7 +55,7 @@ try:
    assert '失敗' in page.locator('#status').inner_text()
    page.once('dialog',lambda diag:diag.accept())
    page.locator('#reset').click()
-   assert state()['objects']['wall5']['x']==628
+   assert state()['objects']['wall5']['x']==636
    page.locator('#pan-mode').click()
    assert page.locator('[data-object=wall4]').evaluate('e=>getComputedStyle(e).pointerEvents')=='none'
    page.locator('#zoom').select_option('.5')
