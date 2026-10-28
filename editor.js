@@ -55,8 +55,11 @@ function render(){
  for(const btn of document.querySelectorAll('[data-pick]')){
   const a=btn.dataset.pick===selected;btn.classList.toggle('primary',a);btn.setAttribute('aria-pressed',String(a));
  }
- const o=items[selected];$('coord-x').value=o.x;$('coord-y').value=o.y;
- $('dims').textContent=o.w+' × '+o.h+' px';
+ const o=items[selected];
+ for(const axis of ['x','y']){const field=$('coord-'+axis);field.value=o?o[axis]:'';field.disabled=!o;}
+ $('dims').textContent=o?(o.w+' × '+o.h+' px'):'建築構造の確認のみ（展示壁は未配置）';
+ for(const btn of document.querySelectorAll('[data-move]'))btn.disabled=!o;
+ for(const id of ['reset','show-import','apply-import'])$(id).disabled=!o;
  $('json-preview').textContent=JSON.stringify(exportData(),null,2);
  $('undo').disabled=history.length===0;$('redo').disabled=future.length===0;
  warnings();
@@ -68,7 +71,8 @@ function commit(before,notice){
 }
 function choose(id){if(objectIds.includes(id)){selected=id;render();status(room.objects.find(x=>x.id===id).label+'を選択しました');}}
 function change(id,target){
- const before=copy(items),o=items[id];
+ const o=items[id];if(!o)return;
+ const before=copy(items);
  const x=Number(target.x),y=Number(target.y);
  if(!Number.isFinite(x)||!Number.isFinite(y))return;
  o.x=clamp(Math.round(x),0,room.size.width-o.w);
@@ -76,17 +80,18 @@ function change(id,target){
  commit(before,'座標を更新しました');
 }
 function setMode(m){
+ if(!objectIds.length)m='pan';
  mode=m;
  $('edit-mode').setAttribute('aria-pressed',String(m==='edit'));
  $('pan-mode').setAttribute('aria-pressed',String(m==='pan'));
  render();
- status(m==='edit'?'編集モード：指で設備を動かせます':'鑑賞モード：横にスクロールできます');
+ status(!objectIds.length?'建築のみの確認モードです（展示壁は配置後に編集できます）':m==='edit'?'編集モード：指で設備を動かせます':'鑑賞モード：横にスクロールできます');
 }
 function zoomTo(z){
  zoom=z;$('stage').style.transform='scale('+z+')';
  $('outer').style.width=(room.size.width*z)+'px';$('outer').style.height=(room.size.height*z)+'px';
 }
-function toEntrance(){const e=$('scroller');e.scrollLeft=e.scrollWidth-e.clientWidth;}
+function toEntrance(){const e=$('scroller');e.scrollLeft=Number.isFinite(room.previewFocusX)?clamp(room.previewFocusX*zoom-e.clientWidth/2,0,e.scrollWidth-e.clientWidth):e.scrollWidth-e.clientWidth;}
 function createImage(path,z){
  const e=document.createElement('img');e.src=path;e.alt='';e.draggable=false;e.className='art';
  e.style.width=room.size.width+'px';e.style.height=room.size.height+'px';e.style.zIndex=z;
@@ -123,7 +128,7 @@ async function loadRoom(id){
  const entry=catalog.rooms.find(r=>r.id===id);if(!entry)throw Error('展示室が見つかりません');
  const res=await fetch(entry.config,{cache:'no-store'});if(!res.ok)throw Error('展示室データの取得に失敗しました '+res.status);
  const next=await res.json();
- if(next.schema!=='a18-gallery-editor/room-v1'||next.id!==id||!next.objects?.length)throw Error('展示室の定義が不正です');
+ if(next.schema!=='a18-gallery-editor/room-v1'||next.id!==id||!Array.isArray(next.objects))throw Error('展示室の定義が不正です');
  room=next;objectIds=room.objects.map(o=>o.id);start=Object.fromEntries(room.objects.map(o=>[o.id,defObj(o)]));
  items=copy(start);
  try{const saved=localStorage.getItem(key());if(saved)items=normalized(JSON.parse(saved));}catch(e){console.warn('Invalid cached state',e);}
@@ -141,7 +146,8 @@ async function loadRoom(id){
   btn.addEventListener('click',()=>choose(obj.id));pick.append(btn);
  }
  layerRoot.append(createImage(room.foreground,10));
- zoomTo(Number($('zoom').value));render();setMode('edit');
+ $('zoom').value=(!objectIds.length&&window.innerWidth<500)?'.35':'.8';
+ zoomTo(Number($('zoom').value));render();setMode(objectIds.length?'edit':'pan');
  history=[];future=[];render();requestAnimationFrame(toEntrance);
 }
 const catalog=await (async()=>{
@@ -158,16 +164,16 @@ for(const r of catalog.rooms){
 $('room-select').addEventListener('change',e=>loadRoom(e.target.value).catch(err=>errors(err.message)));
 for(const btn of document.querySelectorAll('[data-move]')){
  btn.addEventListener('click',()=>{
-  const [dx,dy]=btn.dataset.move.split(',').map(Number),o=items[selected];change(selected,{x:o.x+dx,y:o.y+dy});
+  const [dx,dy]=btn.dataset.move.split(',').map(Number),o=items[selected];if(!o)return;change(selected,{x:o.x+dx,y:o.y+dy});
  });
 }
 for(const axis of ['x','y'])$('coord-'+axis).addEventListener('change',e=>{
- change(selected,{...items[selected],[axis]:Number(e.target.value)});
+ if(!items[selected])return;change(selected,{...items[selected],[axis]:Number(e.target.value)});
 });
 document.addEventListener('keydown',e=>{
  if(e.target.closest('input,select,textarea,button,summary'))return;
  const p={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]}[e.key];
- if(p&&mode==='edit'){e.preventDefault();const o=items[selected],v=e.shiftKey?10:1;
+ if(p&&mode==='edit'&&items[selected]){e.preventDefault();const o=items[selected],v=e.shiftKey?10:1;
   change(selected,{x:o.x+p[0]*v,y:o.y+p[1]*v});}
 });
 $('edit-mode').onclick=()=>setMode('edit');$('pan-mode').onclick=()=>setMode('pan');

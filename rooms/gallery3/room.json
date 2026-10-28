@@ -1,15 +1,16 @@
 {
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery3",
-  "name": "\u5c55\u793a\u5ba43",
-  "subtitle": "D architecture-only study - no exhibition frames",
+  "name": "展示室3",
+  "subtitle": "E案：中央手前に南入口／右側に東出口（建築のみ・額縁0）",
+  "previewFocusX": 469,
   "size": {
     "width": 930,
     "height": 582
   },
-  "entrance": "South, lower-left in screen: connects to gallery1 north",
-  "exit": "East, upper-right in screen: connects to gallery5 (Lv6)",
-  "background": "rooms/gallery3/gallery3_architecture_only_D.png",
+  "entrance": "South: gallery1; x≈469/930, front center (visual draft)",
+  "exit": "East: gallery5; x≈875/930, right side (visual draft)",
+  "background": "rooms/gallery3/gallery3_architecture_only_E.png",
   "foreground": "rooms/gallery3/foreground.png",
   "objects": [],
   "limits": {
@@ -18,7 +19,7 @@
     "top": 270,
     "bottom": 18
   },
-  "layoutRevision": "gallery3-architecture-only-D-20261028",
-  "status": "unapproved architecture-only concept",
-  "notes": "Only architecture: 0 frames displayed; planned 5 fixtures remain a specification, to be positioned after architectural approval. C preserved in gallery3_concept_C.png."
+  "layoutRevision": "gallery3-architecture-only-E-20261028",
+  "status": "unapproved architecture-only proposal; gameplay not implemented",
+  "notes": "Visually aligned to museum-navigation.js south/east portal directions. No frames placed by design. Five fixtures remain required and unpositioned. No walk/collision/depth QA."
 }

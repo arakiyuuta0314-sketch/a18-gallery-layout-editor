@@ -8,12 +8,12 @@
     },
     {
       "id": "gallery2",
-      "name": "Gallery 2 (A draft)",
+      "name": "展示室2（配置案承認済み）",
       "config": "rooms/gallery2/room.json"
     },
     {
       "id": "gallery3",
-      "name": "Gallery 3 (draft)",
+      "name": "展示室3（建築E案・未承認）",
       "config": "rooms/gallery3/room.json"
     }
   ]
