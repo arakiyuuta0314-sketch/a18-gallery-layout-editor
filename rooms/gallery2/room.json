@@ -1,20 +1,20 @@
 {
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery2",
-  "name": "展示室2",
-  "subtitle": "A案・コの字回遊／未採用の配置監修用",
+  "name": "\u5c55\u793a\u5ba42",
+  "subtitle": "A concept - U-shaped viewing route (not approved)",
   "size": {
     "width": 930,
     "height": 582
   },
-  "entrance": "西側：エントランス右上の通路に接続",
-  "exit": "北側：展示室4（館Lv5で開放）",
+  "entrance": "West: entrance hall",
+  "exit": "North: gallery4 (opens at museum level 5)",
   "background": "rooms/gallery2/architecture.png",
   "foreground": "rooms/gallery2/foreground.png",
   "objects": [
     {
       "id": "wall3",
-      "label": "展示壁3（仮）",
+      "label": "Display wall 3 (draft)",
       "image": "rooms/gallery2/wall3.png",
       "rect": {
         "x": 105,
@@ -25,7 +25,7 @@
     },
     {
       "id": "wall4",
-      "label": "展示壁4（仮）",
+      "label": "Display wall 4 (draft)",
       "image": "rooms/gallery2/wall4.png",
       "rect": {
         "x": 370,
@@ -36,7 +36,7 @@
     },
     {
       "id": "wall5",
-      "label": "展示壁5（仮）",
+      "label": "Display wall 5 (draft)",
       "image": "rooms/gallery2/wall5.png",
       "rect": {
         "x": 664,
@@ -55,5 +55,5 @@
   },
   "layoutRevision": "A-provisional-20261028",
   "status": "not approved; layout preview only",
-  "notes": "Gallery1 background art direction and real preview wall sprites reused. Gallery2 back wall and passages are provisional image composition, not final game assets. No new staff, no decorations. Game collisions, depth, transitions not verified."
+  "notes": "Prototype preview; real gallery1 wall sprites reused. Door geometry and west passage are draft. Not gameplay-tested."
 }
