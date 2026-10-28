@@ -1,0 +1,9 @@
+from pathlib import Path
+import shutil
+r=Path('C:/Users/User/source/repos/a18-gallery-layout-editor')
+p=r/'gallery1-architecture-v05-review'
+p.mkdir(exist_ok=True)
+shutil.copy2(r/'qa/architecture-bases-20261029/gallery1_architecture_closed_door_sidewalls_v05_REVIEW.png',p/'gallery1-v05.png')
+shutil.copy2(r/'qa/architecture-bases-20261029/gallery1_v04_vs_v05_closed_door_sidewalls.png',p/'comparison.png')
+(p/'index.html').write_text('''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>展示室1 建築背景 v05｜確認用</title><style>body{font-family:system-ui,sans-serif;background:#f3f4ef;color:#173a2a;margin:0;padding:16px}main{max-width:1100px;margin:auto}img{width:100%;height:auto;border-radius:8px;display:block;background:white}section{background:white;padding:12px;border-radius:12px;margin:14px 0}h1{font-size:1.3rem}h2{font-size:1.05rem}.note{font-size:.9rem;color:#526558}a{color:#205a3e}</style></head><body><main><h1>展示室1｜建築背景 v05</h1><p class="note">承認前の確認用。ゲーム本体への組み込み・正式採用は未実施。</p><section><h2>修復後 v05</h2><img src="gallery1-v05.png" alt="展示室1 建築背景v05"></section><section><h2>v04との比較（左：変更前、右：v05）</h2><img src="comparison.png" alt="修復前後の比較"></section><p><a href="../">配置エディターに戻る</a></p></main></body></html>''',encoding='utf-8')
+print('READY',p)
