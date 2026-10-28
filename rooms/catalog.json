@@ -10,6 +10,11 @@
       "id": "gallery2",
       "name": "Gallery 2 (A draft)",
       "config": "rooms/gallery2/room.json"
+    },
+    {
+      "id": "gallery3",
+      "name": "Gallery 3 (draft)",
+      "config": "rooms/gallery3/room.json"
     }
   ]
 }

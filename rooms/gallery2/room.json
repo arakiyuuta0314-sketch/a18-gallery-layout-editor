@@ -2,7 +2,7 @@
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery2",
   "name": "\u5c55\u793a\u5ba42",
-  "subtitle": "A concept - U-shaped viewing route (not approved)",
+  "subtitle": "A layout approved 2026-10-28",
   "size": {
     "width": 930,
     "height": 582
@@ -28,8 +28,8 @@
       "label": "Display wall 4 (draft)",
       "image": "rooms/gallery2/wall4.png",
       "rect": {
-        "x": 370,
-        "y": 369,
+        "x": 380,
+        "y": 251,
         "w": 212,
         "h": 181
       }
@@ -53,7 +53,7 @@
     "bottom": 14,
     "clearRearCorridorY": 275
   },
-  "layoutRevision": "A-provisional-20261028",
-  "status": "not approved; layout preview only",
-  "notes": "Prototype preview; real gallery1 wall sprites reused. Door geometry and west passage are draft. Not gameplay-tested."
+  "layoutRevision": "A-approved-user-positions-20261028",
+  "status": "layout approved; game implementation pending",
+  "notes": "User approved exact JSON positions. Keep architecture and entrance/exit draft status separate. Gameplay collision, character depth, camera, door transitions and decorations not yet validated."
 }
