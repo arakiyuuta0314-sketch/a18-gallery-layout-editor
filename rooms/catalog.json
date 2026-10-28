@@ -5,6 +5,11 @@
       "id": "gallery1",
       "name": "展示室1",
       "config": "rooms/gallery1/room.json"
+    },
+    {
+      "id": "gallery2",
+      "name": "展示室2（A案・仮）",
+      "config": "rooms/gallery2/room.json"
     }
   ]
 }
