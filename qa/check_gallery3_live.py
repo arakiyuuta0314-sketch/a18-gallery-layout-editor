@@ -19,11 +19,11 @@ try:
    assert res.status==200
    page.wait_for_function('window.__A18_LAYOUT_EDITOR__ && window.__A18_LAYOUT_EDITOR__.getState().roomId === "gallery3"')
    state=page.evaluate('window.__A18_LAYOUT_EDITOR__.getState()')
-   # G proposal: 3 fixed rear frames (2 enlarged) + 2 perspective-skewed movable walls.
+   # G approved layout: 3 fixed rear frames (2 enlarged) + 2 perspective-skewed movable walls.
    assert len(state['objects'])==2,state
    assert set(state['objects'])=={'wall4','wall5'},state
-   assert state['objects']['wall4']=={'x':119,'y':314,'w':232,'h':198},state
-   assert state['objects']['wall5']=={'x':578,'y':312,'w':232,'h':198},state
+   assert state['objects']['wall4']=={'x':119,'y':270,'w':232,'h':198},state
+   assert state['objects']['wall5']=={'x':578,'y':270,'w':232,'h':198},state
    assert state['roomId']=='gallery3',state
    assert page.locator('#zoom').input_value()==('.35' if width==390 else '.8')
    assert all(e.evaluate('e=>e.complete && e.naturalWidth>0') for e in page.locator('#stage img').all())

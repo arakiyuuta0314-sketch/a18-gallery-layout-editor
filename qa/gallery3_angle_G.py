@@ -14,7 +14,7 @@ e_arch=f/"gallery3_architecture_only_E.png"
 sha_e=hashlib.sha256(e_arch.read_bytes()).hexdigest()
 config=f/"room.json"
 room=json.loads(config.read_text(encoding="utf-8"))
-assert room["id"]=="gallery3" and room["layoutRevision"] in ("gallery3-E-architecture-approved-F-five-frames-unapproved-20261029","gallery3-E-approved-G-hachi-proposal-20261029")
+assert room["id"]=="gallery3" and room["layoutRevision"] in ("gallery3-E-architecture-approved-F-five-frames-unapproved-20261029","gallery3-E-approved-G-hachi-proposal-20261029","gallery3-G-approved-user-positions-20261029")
 assert sorted(o["id"] for o in room["objects"])==["wall4","wall5"]
 # Snapshot F's coordinates/layout in JSON before switching editor to the proposed G.
 f_ref=f/"room_F_reference.json"
@@ -60,8 +60,8 @@ left=perspective_wall(f/"wall4.png",f/"wall4_angle_G.png",
 right=perspective_wall(f/"wall5.png",f/"wall5_angle_G.png",
                        [(2,1),(230,20),(230,196),(2,155)])
 items=[
- ("wall4","独立展示壁④／ハの字左",119,314,width,height,"wall4_angle_G.png"),
- ("wall5","独立展示壁⑤／ハの字右",578,312,width,height,"wall5_angle_G.png")
+ ("wall4","独立展示壁④／ハの字左",119,270,width,height,"wall4_angle_G.png"),
+ ("wall5","独立展示壁⑤／ハの字右",578,270,width,height,"wall5_angle_G.png")
 ]
 for _,_,x,y,w,h,_ in items:assert x>=0 and y>=0 and x+w<930 and y+h<582
 # South entrance ground threshold is centered x~470 near lower edge.
@@ -90,9 +90,9 @@ room.update({
  "objects":[{"id":n,"label":label,"image":f"rooms/gallery3/{filename}",
              "rect":{"x":x,"y":y,"w":w,"h":h}}
             for n,label,x,y,w,h,filename in items],
- "subtitle":"G比較案：奥の②を拡大＋展示壁④⑤をハの字（未承認）",
- "layoutRevision":"gallery3-E-approved-G-hachi-proposal-20261029",
- "status":"E architectural outline approved, G frame sizes/angles unapproved",
+ "subtitle":"G採用配置：奥の②を拡大＋展示壁④⑤をハの字（座標確定）",
+ "layoutRevision":"gallery3-G-approved-user-positions-20261029",
+ "status":"G visual layout approved; game integration pending",
  "notes":"E architectural base remains preserved unchanged. Rear 1&3 unchanged. Rear 2 enlarged 200x100 =>252x110; movable 4&5 perspective-distorted as dedicated images, no geometric rotation applied to a flat rectangle. Walkability, wall footprints, layer sorting and staff placement pending QA.",
 })
 config.write_text(json.dumps(room,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")

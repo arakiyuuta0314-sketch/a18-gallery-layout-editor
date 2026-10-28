@@ -2,7 +2,7 @@
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery3",
   "name": "展示室3",
-  "subtitle": "G比較案：奥の②を拡大＋展示壁④⑤をハの字（未承認）",
+  "subtitle": "G採用配置：奥の②を拡大＋展示壁④⑤をハの字（座標確定）",
   "previewFocusX": 469,
   "size": {
     "width": 930,
@@ -19,7 +19,7 @@
       "image": "rooms/gallery3/wall4_angle_G.png",
       "rect": {
         "x": 119,
-        "y": 314,
+        "y": 270,
         "w": 232,
         "h": 198
       }
@@ -30,7 +30,7 @@
       "image": "rooms/gallery3/wall5_angle_G.png",
       "rect": {
         "x": 578,
-        "y": 312,
+        "y": 270,
         "w": 232,
         "h": 198
       }
@@ -42,7 +42,7 @@
     "top": 270,
     "bottom": 18
   },
-  "layoutRevision": "gallery3-E-approved-G-hachi-proposal-20261029",
-  "status": "E architectural outline approved, G frame sizes/angles unapproved",
+  "layoutRevision": "gallery3-G-approved-user-positions-20261029",
+  "status": "G visual layout approved; game integration pending",
   "notes": "E architectural base remains preserved unchanged. Rear 1&3 unchanged. Rear 2 enlarged 200x100 =>252x110; movable 4&5 perspective-distorted as dedicated images, no geometric rotation applied to a flat rectangle. Walkability, wall footprints, layer sorting and staff placement pending QA."
 }
