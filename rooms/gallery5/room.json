@@ -2,7 +2,7 @@
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery5",
   "name": "展示室5",
-  "subtitle": "C/D重厚案を比較中｜Cは中央大作＋左右2作品（仮3枠）",
+  "subtitle": "E/F宮殿案を比較中｜Eは3作品・床中央に絨毯（未承認）",
   "previewFocusX": 465,
   "mobileOverview": true,
   "size": {
@@ -11,16 +11,16 @@
   },
   "entrance": "南：エントランス（下部中央）",
   "exit": "西：展示室3（左側面）、東：展示室4（右側面）",
-  "background": "rooms/gallery5/gallery5_heavy_C.png",
+  "background": "rooms/gallery5/gallery5_palace_E.png",
   "foreground": "rooms/gallery3/foreground.png",
   "objects": [],
-  "layoutRevision": "gallery5-heavy-CD-unapproved-20261029",
-  "status": "unapproved dark heritage design; C visually has 3 frames, existing game retains 5 logical fixtures",
+  "layoutRevision": "gallery5-palace-EF-unapproved-20261029",
+  "status": "unapproved historic palace E/F artwork; E has 3 visual frames, game retains all 5 fixtures",
   "frameCount": 5,
   "previewArtworkCount": 3,
   "proposals": {
     "A": "five rear frames in one row, center 3 enlarged",
     "B": "two-tier side pairs around a large center frame 3"
   },
-  "notes": "C (3 displays) and D (5 displays) are visual comparisons only. Existing 5 game fixture IDs and 28-slot completion logic remain unchanged. Old A/B preview separately preserved in room_AB_reference.json. South/west/east passages unchanged. No game integration, walkability, staff, collision or depth QA."
+  "notes": "E (3 displays) and F (5 displays) extend C/D into palace architecture with wood, pilasters, gold accents, sconces and crimson runner. Previous A/B and C/D designs preserved separately. The game still retains five logical fixtures, 28 in total; no code, staff, collision or progression updates."
 }

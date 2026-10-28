@@ -23,7 +23,7 @@
     },
     {
       "id": "gallery5",
-      "name": "展示室5（重厚C/D案・未承認）",
+      "name": "展示室5（宮殿E/F案・未承認）",
       "config": "rooms/gallery5/room.json"
     }
   ]
