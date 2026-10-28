@@ -2,7 +2,7 @@
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery5",
   "name": "展示室5",
-  "subtitle": "A/B比較中｜3方向に開く広間（A：奥5枠、床の展示壁なし）",
+  "subtitle": "C/D重厚案を比較中｜Cは中央大作＋左右2作品（仮3枠）",
   "previewFocusX": 465,
   "mobileOverview": true,
   "size": {
@@ -11,15 +11,16 @@
   },
   "entrance": "南：エントランス（下部中央）",
   "exit": "西：展示室3（左側面）、東：展示室4（右側面）",
-  "background": "rooms/gallery5/gallery5_concept_A.png",
+  "background": "rooms/gallery5/gallery5_heavy_C.png",
   "foreground": "rooms/gallery3/foreground.png",
   "objects": [],
-  "layoutRevision": "gallery5-AB-unapproved-20261029",
-  "status": "unapproved architecture and five-frame visual concepts",
+  "layoutRevision": "gallery5-heavy-CD-unapproved-20261029",
+  "status": "unapproved dark heritage design; C visually has 3 frames, existing game retains 5 logical fixtures",
   "frameCount": 5,
+  "previewArtworkCount": 3,
   "proposals": {
     "A": "five rear frames in one row, center 3 enlarged",
     "B": "two-tier side pairs around a large center frame 3"
   },
-  "notes": "No north exit. All five placeholders are baked into preview backdrop, not game fixtures. Staff, collision, walkability, image orientation and gameplay are not validated."
+  "notes": "C (3 displays) and D (5 displays) are visual comparisons only. Existing 5 game fixture IDs and 28-slot completion logic remain unchanged. Old A/B preview separately preserved in room_AB_reference.json. South/west/east passages unchanged. No game integration, walkability, staff, collision or depth QA."
 }

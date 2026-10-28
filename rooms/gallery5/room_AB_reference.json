@@ -1,0 +1,25 @@
+{
+  "schema": "a18-gallery-editor/room-v1",
+  "id": "gallery5",
+  "name": "展示室5",
+  "subtitle": "A/B比較中｜3方向に開く広間（A：奥5枠、床の展示壁なし）",
+  "previewFocusX": 465,
+  "mobileOverview": true,
+  "size": {
+    "width": 930,
+    "height": 582
+  },
+  "entrance": "南：エントランス（下部中央）",
+  "exit": "西：展示室3（左側面）、東：展示室4（右側面）",
+  "background": "rooms/gallery5/gallery5_concept_A.png",
+  "foreground": "rooms/gallery3/foreground.png",
+  "objects": [],
+  "layoutRevision": "gallery5-AB-unapproved-20261029",
+  "status": "unapproved architecture and five-frame visual concepts",
+  "frameCount": 5,
+  "proposals": {
+    "A": "five rear frames in one row, center 3 enlarged",
+    "B": "two-tier side pairs around a large center frame 3"
+  },
+  "notes": "No north exit. All five placeholders are baked into preview backdrop, not game fixtures. Staff, collision, walkability, image orientation and gameplay are not validated."
+}
