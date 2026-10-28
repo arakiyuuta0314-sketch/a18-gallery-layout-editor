@@ -2,7 +2,7 @@
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery4",
   "name": "展示室4",
-  "subtitle": "A案・未承認｜奥4枠（縦・横・縦・横）＋室内1枠（横）",
+  "subtitle": "A案・配置承認済み｜奥4枠（縦・横・縦・横）＋室内1枠（横）",
   "previewFocusX": 465,
   "mobileOverview": true,
   "size": {
@@ -39,7 +39,7 @@
     "frame-4-3": "landscape",
     "frame-4-4": "landscape"
   },
-  "layoutRevision": "gallery4-A-portrait-landscape-draft-20261029",
-  "status": "unapproved architectural and frame layout study",
+  "layoutRevision": "gallery4-A-visual-layout-approved-20261029",
+  "status": "approved A architectural and five-frame visual layout; furniture undecided; gameplay not implemented",
   "notes": "A: four frames on rear wall and one standalone landscape floor wall. B comparison PNG also available; each has 2 vertical and 3 horizontal displays. 'Portrait-only'/'landscape-only' are NOT implemented or decided in game. Walkability/staff/collision/depth not tested."
 }

@@ -18,7 +18,7 @@
     },
     {
       "id": "gallery4",
-      "name": "展示室4（縦横混在A案・未承認）",
+      "name": "展示室4（A案配置承認済み）",
       "config": "rooms/gallery4/room.json"
     }
   ]

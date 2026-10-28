@@ -8,6 +8,8 @@ import json
 root=Path(__file__).resolve().parents[1]
 room=json.loads((root/'rooms/gallery4/room.json').read_text(encoding='utf-8'))
 assert room['id']=='gallery4'
+assert room['layoutRevision']=='gallery4-A-visual-layout-approved-20261029'
+assert 'approved' in room['status']
 assert room['entrance'].startswith('南') and room['exit'].startswith('西')
 assert len(room['objects'])==1 and room['objects'][0]['id']=='wall5'
 shapes=room['proposedFixtureShapes']
