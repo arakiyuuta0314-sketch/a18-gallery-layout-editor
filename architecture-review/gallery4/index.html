@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>展示室4｜柱状の張り出し比較</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#24372a;background:#f5f4f0}*{box-sizing:border-box}
+body{margin:0}main{max-width:1100px;margin:auto;padding:16px 11px 42px}
+h1{font-size:clamp(20px,4vw,28px);margin:8px 0}h2{font-size:18px}
+p{line-height:1.7;color:#59665f}.panel{background:white;border:1px solid #e0e5df;border-radius:12px;padding:11px;margin:15px 0}
+.bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}button{border:1px solid #b7c8bd;color:#205739;background:white;border-radius:9px;padding:11px 14px;font-weight:700;cursor:pointer}button[aria-pressed=true]{background:#20613e;color:white}
+.frame{position:relative;aspect-ratio:930/582;background:#050606;overflow:hidden;border-radius:5px}
+.frame>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.frame .before{display:none}.frame.beforemode .before{display:block}
+.frame.compare .before{display:block;clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0);z-index:2}
+.frame .rule{display:none}.frame.compare .rule{display:block;position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:white;z-index:3;pointer-events:none}
+.frame.compare .rule:after{content:"↔";position:absolute;left:-18px;top:50%;transform:translateY(-50%);width:38px;height:38px;display:grid;place-items:center;background:white;color:#205739;border-radius:50%;font-size:22px}
+label{display:block;font-weight:600;margin:11px 0 2px}input[type=range]{width:100%;height:30px;accent-color:#20613e}
+a{color:#216547}a.pic{display:inline-block;padding:9px 12px;margin:10px 8px 0 0;border:1px solid #c9d8c9;border-radius:8px;text-decoration:none;font-weight:700}
+.detail{display:block;width:100%;height:auto}.kicker{font-size:12px;color:#537761;font-weight:700;letter-spacing:.14em}.small{font-size:14px}
+@media(max-width:540px){.bar button{flex:1;font-size:13px;padding:11px 5px}.panel{padding:8px}a.pic{font-size:13px;padding:10px 6px}}
+</style></head><body><main>
+<div class="kicker">とっておき美術館 / 建築背景監修</div>
+<h1>展示室4｜柱状の張り出しだけを比較</h1>
+<p>左側の普通の通路を維持し、内側の縁に柱を1本だけ追加した試作です。アーチ・扉・巨大な側壁は加えていません。</p>
+<section class="panel">
+<div class="bar">
+<button data-mode="after" aria-pressed="true">柱あり v02</button>
+<button data-mode="before" aria-pressed="false">柱なし v01</button>
+<button data-mode="compare" aria-pressed="false">比較する</button>
+</div>
+<div id="viewer" class="frame" style="--pos:50%" aria-label="展示室4の柱状の張り出しの比較画像">
+<img class="after" src="../../qa/architecture-bases-20261029/gallery4_v02_attached_column_approved_A_five_frames_REVIEW.png" alt="柱の張り出しを1本だけ加えた展示室4" fetchpriority="high">
+<img class="before" src="../../qa/architecture-bases-20261029/gallery4_v01_approved_A_five_frames_REVIEW.png" alt="柱を置かない普通の通路の展示室4">
+<div class="rule" aria-hidden="true"></div>
+</div>
+<div id="sliderContainer" hidden><label for="pos">左は柱なし、右は柱あり。スライダーで見比べられます。</label><input id="pos" type="range" min="0" max="100" value="50"></div>
+<a class="pic" href="../../qa/architecture-bases-20261029/gallery4_v02_west_attached_column_REVIEW.png" target="_blank" rel="noopener">柱あり・背景だけ</a>
+<a class="pic" href="../../qa/architecture-bases-20261029/gallery4_v01_plain_west_passage_architecture_REVIEW.png" target="_blank" rel="noopener">柱なし・背景だけ</a>
+</section>
+<section class="panel">
+<h2>左通路の拡大比較</h2>
+<img class="detail" src="../../qa/architecture-bases-20261029/gallery4_v01_v02_west_column_detail_COMPARISON.png" alt="左は柱なし、右は柱ありの左側通路を拡大した比較" loading="lazy">
+<p class="small">左：柱なし v01　／　右：柱状の張り出し v02</p>
+</section>
+<p class="small">※あくまで採用前の比較画像です。奥壁4枠＋独立壁1枠のA案は変更していません。ゲーム内の当たり判定・正式素材への反映もしていません。</p>
+</main><script>
+(()=>{const el=document.getElementById("viewer"),box=document.getElementById("sliderContainer"),rng=document.getElementById("pos");
+document.querySelectorAll("[data-mode]").forEach(btn=>btn.addEventListener("click",()=>{
+const m=btn.dataset.mode;el.classList.toggle("compare",m==="compare");el.classList.toggle("beforemode",m==="before");box.hidden=m!=="compare";
+document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));
+}));
+rng.addEventListener("input",()=>el.style.setProperty("--pos",rng.value+"%"));})();
+</script></body></html>
