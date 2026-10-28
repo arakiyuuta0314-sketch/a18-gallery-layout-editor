@@ -20,6 +20,11 @@
       "id": "gallery4",
       "name": "展示室4（A案配置承認済み）",
       "config": "rooms/gallery4/room.json"
+    },
+    {
+      "id": "gallery5",
+      "name": "展示室5（A/Bレイアウト比較中）",
+      "config": "rooms/gallery5/room.json"
     }
   ]
 }
