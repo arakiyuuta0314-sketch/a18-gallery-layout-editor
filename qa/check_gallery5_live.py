@@ -12,7 +12,8 @@ assert room['frameCount']==5
 assert room['previewArtworkCount']==3 and room['background'].endswith('gallery5_palace_E.png')
 assert room['entrance'].startswith('南') and room['exit'].startswith('西')
 assert '東' in room['exit'] and len(room['objects'])==0
-assert room['status'].startswith('unapproved')
+assert room['layoutRevision']=='gallery5-palace-E-visual-approved-20261029'
+assert room['status'].startswith('E palace visual design approved')
 for name in ('gallery5_concept_A.png','gallery5_concept_B.png','gallery5_architecture_only.png',
              'gallery5_heavy_C.png','gallery5_heavy_D.png','gallery5_heavy_architecture_C.png',
              'gallery5_palace_E.png','gallery5_palace_F.png','gallery5_palace_architecture_E.png'):
@@ -38,7 +39,7 @@ try:
    assert any('gallery5_palace_E.png' in s for s in page.locator('#stage img').evaluate_all('(es)=>es.map(e=>e.src)'))
    assert not errors,errors
    page.screenshot(path=str(root/'rooms/gallery5'/f'editor_gallery5_{width}.png'),full_page=True)
-   print('PASS gallery5 palace E unapproved',width,'3 art visuals; original game 5 fixtures unchanged')
+   print('PASS gallery5 palace E visually approved',width,'3 art visuals; original game 5 fixtures unchanged')
    ctx.close()
   browser.close()
 finally:
