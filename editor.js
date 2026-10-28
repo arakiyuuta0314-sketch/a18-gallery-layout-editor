@@ -148,7 +148,7 @@ async function loadRoom(id){
   btn.addEventListener('click',()=>choose(obj.id));pick.append(btn);
  }
  layerRoot.append(createImage(room.foreground,10));
- $('zoom').value=((!objectIds.length||room.id==='gallery3')&&window.innerWidth<500)?'.35':'.8';
+ $('zoom').value=((!objectIds.length||room.mobileOverview||room.id==='gallery3')&&window.innerWidth<500)?'.35':'.8';
  zoomTo(Number($('zoom').value));render();setMode(objectIds.length?'edit':'pan');
  history=[];future=[];render();requestAnimationFrame(toEntrance);
 }

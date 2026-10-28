@@ -1,0 +1,45 @@
+{
+  "schema": "a18-gallery-editor/room-v1",
+  "id": "gallery4",
+  "name": "展示室4",
+  "subtitle": "A案・未承認｜奥4枠（縦・横・縦・横）＋室内1枠（横）",
+  "previewFocusX": 465,
+  "mobileOverview": true,
+  "size": {
+    "width": 930,
+    "height": 582
+  },
+  "entrance": "南：展示室2（画面下中央）",
+  "exit": "西：展示室5（左側面アーチ、Lv.6開放）",
+  "background": "rooms/gallery4/gallery4_A_rear.png",
+  "foreground": "rooms/gallery3/foreground.png",
+  "objects": [
+    {
+      "id": "wall5",
+      "label": "独立展示壁⑤／横型",
+      "image": "rooms/gallery4/gallery4_A_wall5.png",
+      "rect": {
+        "x": 614,
+        "y": 323,
+        "w": 210,
+        "h": 165
+      }
+    }
+  ],
+  "limits": {
+    "left": 20,
+    "right": 20,
+    "top": 250,
+    "bottom": 0
+  },
+  "proposedFixtureShapes": {
+    "frame-4-0": "portrait",
+    "frame-4-1": "landscape",
+    "frame-4-2": "portrait",
+    "frame-4-3": "landscape",
+    "frame-4-4": "landscape"
+  },
+  "layoutRevision": "gallery4-A-portrait-landscape-draft-20261029",
+  "status": "unapproved architectural and frame layout study",
+  "notes": "A: four frames on rear wall and one standalone landscape floor wall. B comparison PNG also available; each has 2 vertical and 3 horizontal displays. 'Portrait-only'/'landscape-only' are NOT implemented or decided in game. Walkability/staff/collision/depth not tested."
+}

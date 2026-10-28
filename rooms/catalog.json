@@ -15,6 +15,11 @@
       "id": "gallery3",
       "name": "展示室3（G配置案承認済み）",
       "config": "rooms/gallery3/room.json"
+    },
+    {
+      "id": "gallery4",
+      "name": "展示室4（縦横混在A案・未承認）",
+      "config": "rooms/gallery4/room.json"
     }
   ]
 }
