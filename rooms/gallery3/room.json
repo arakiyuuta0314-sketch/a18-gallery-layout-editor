@@ -2,36 +2,47 @@
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery3",
   "name": "\u5c55\u793a\u5ba43",
-  "subtitle": "Gallery3 draft - asymmetric viewing route",
+  "subtitle": "B concept - offset exhibition promenade (unapproved)",
   "size": {
     "width": 930,
     "height": 582
   },
-  "entrance": "South: gallery1",
-  "exit": "East: gallery5 (opens at museum level 6)",
+  "entrance": "South, lower-left in screen: connects to gallery1 north",
+  "exit": "East, upper-right in screen: connects to gallery5 (Lv6)",
   "background": "rooms/gallery3/architecture.png",
   "foreground": "rooms/gallery3/foreground.png",
   "objects": [
     {
+      "id": "wall3",
+      "label": "Display 3 (draft)",
+      "image": "rooms/gallery3/wall3.png",
+      "rect": {
+        "x": 86,
+        "y": 302,
+        "w": 196,
+        "h": 171
+      }
+    },
+    {
       "id": "wall4",
-      "label": "wall4 (draft)",
+      "label": "Display 4 (draft)",
       "image": "rooms/gallery3/wall4.png",
       "rect": {
-        "x": 105,
-        "y": 301,
-        "w": 240,
-        "h": 182
+        "x": 567,
+        "y": 271,
+        "w": 211,
+        "h": 178
       }
     },
     {
       "id": "wall5",
-      "label": "wall5 (draft)",
+      "label": "Display 5 (draft)",
       "image": "rooms/gallery3/wall5.png",
       "rect": {
-        "x": 598,
-        "y": 354,
-        "w": 240,
-        "h": 182
+        "x": 351,
+        "y": 371,
+        "w": 219,
+        "h": 178
       }
     }
   ],
@@ -41,7 +52,7 @@
     "top": 270,
     "bottom": 18
   },
-  "layoutRevision": "gallery3-concept-A-20261028",
+  "layoutRevision": "gallery3-concept-B-20261028",
   "status": "unapproved visual layout proposal",
-  "notes": "Same art direction and floor as gallery1/gallery2. 3 rear frames + 2 independent walls. South and east passages draft; collision and character layering not implemented."
+  "notes": "2 fixed rear displays + 3 independent display walls. Screen-local lower-left south entry, upper-right east exit. Room adjacency verified against ROOM_LINKS. Collision/depth not tested."
 }

@@ -19,7 +19,7 @@ try:
    assert res.status==200
    page.wait_for_function('window.__A18_LAYOUT_EDITOR__ && window.__A18_LAYOUT_EDITOR__.getState().roomId === "gallery3"')
    state=page.evaluate('window.__A18_LAYOUT_EDITOR__.getState()')
-   assert len(state['objects'])==2,state
+   assert len(state['objects'])==3,state
    assert all(e.evaluate('e=>e.complete && e.naturalWidth>0') for e in page.locator('#stage img').all())
    assert not errors,errors
    page.screenshot(path=str(root/'rooms/gallery3'/f'editor_gallery3_{width}.png'),full_page=True)
