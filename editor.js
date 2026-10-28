@@ -9,6 +9,8 @@ let room=null,objectIds=[],items={},start={},selected='',history=[],future=[],zo
 const status=s=>{$('status').textContent=s;};
 const errors=s=>{$('warning').textContent=s;};
 const key=()=>('a18-layout-editor:'+room.id+':v1');
+const previewRevision=new URLSearchParams(location.search).get('rev');
+const versioned=path=>previewRevision?path+(path.includes('?')?'&':'?')+'rev='+encodeURIComponent(previewRevision):path;
 const layerRoot=$('scene-layers');
 function defObj(o){return {x:Math.round(o.rect.x),y:Math.round(o.rect.y),w:o.rect.w,h:o.rect.h};}
 function persistent(){try{localStorage.setItem(key(),JSON.stringify(items));}catch(_){}}
@@ -93,14 +95,14 @@ function zoomTo(z){
 }
 function toEntrance(){const e=$('scroller');e.scrollLeft=Number.isFinite(room.previewFocusX)?clamp(room.previewFocusX*zoom-e.clientWidth/2,0,e.scrollWidth-e.clientWidth):e.scrollWidth-e.clientWidth;}
 function createImage(path,z){
- const e=document.createElement('img');e.src=path;e.alt='';e.draggable=false;e.className='art';
+ const e=document.createElement('img');e.src=versioned(path);e.alt='';e.draggable=false;e.className='art';
  e.style.width=room.size.width+'px';e.style.height=room.size.height+'px';e.style.zIndex=z;
  return e;
 }
 function createObject(cfg){
  const node=document.createElement('button');node.type='button';node.className='obj';
  node.dataset.object=cfg.id;node.setAttribute('aria-label',cfg.label+'を移動');
- const image=document.createElement('img');image.src=cfg.image;image.draggable=false;image.alt='';
+ const image=document.createElement('img');image.src=versioned(cfg.image);image.draggable=false;image.alt='';
  const handle=document.createElement('span');handle.className='handle';handle.textContent=cfg.label;
  node.append(image,handle);node.style.zIndex='4';
  node.addEventListener('pointerdown',e=>{
@@ -126,7 +128,7 @@ function createObject(cfg){
 }
 async function loadRoom(id){
  const entry=catalog.rooms.find(r=>r.id===id);if(!entry)throw Error('展示室が見つかりません');
- const res=await fetch(entry.config,{cache:'no-store'});if(!res.ok)throw Error('展示室データの取得に失敗しました '+res.status);
+ const res=await fetch(versioned(entry.config),{cache:'no-store'});if(!res.ok)throw Error('展示室データの取得に失敗しました '+res.status);
  const next=await res.json();
  if(next.schema!=='a18-gallery-editor/room-v1'||next.id!==id||!Array.isArray(next.objects))throw Error('展示室の定義が不正です');
  room=next;objectIds=room.objects.map(o=>o.id);start=Object.fromEntries(room.objects.map(o=>[o.id,defObj(o)]));
@@ -152,7 +154,7 @@ async function loadRoom(id){
 }
 const catalog=await (async()=>{
  try{
-  const r=await fetch('rooms/catalog.json',{cache:'no-store'});
+  const r=await fetch(versioned('rooms/catalog.json'),{cache:'no-store'});
   if(!r.ok)throw Error('展示室一覧 '+r.status);
   const c=await r.json();if(!c.rooms?.length)throw Error('展示室がありません');
   return c;
