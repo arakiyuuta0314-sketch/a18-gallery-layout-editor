@@ -1,0 +1,26 @@
+{
+  "room": "gallery2",
+  "source": "rooms/gallery2/architecture.png",
+  "output": "rooms/gallery2/architecture_only_v01.png",
+  "source_sha256": "412d010884153cff97e9416fb5e21074636bc08cde3ea06e7858eb9794e6755f",
+  "output_sha256": "c2f519420e869b377f9e4f12bfbe6e61c2091e49a42a4d11e30832085d9a6a70",
+  "removed_rear_frames_rects_inclusive": [
+    [
+      80,
+      78,
+      259,
+      166
+    ],
+    [
+      349,
+      78,
+      509,
+      166
+    ]
+  ],
+  "modified_pixels_outside_rects": 0,
+  "original_room_json_modified": false,
+  "display_walls_3_4_5_modified": false,
+  "construction": "Exact erasure using recovered source wall fill; no generative reconstruction",
+  "status": "review_candidate_not_game_integrated"
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "room": "gallery3",
+    "approved_source": "rooms/gallery3/gallery3_layout_G_rear_frames.png",
+    "architecture_base": "rooms/gallery3/gallery3_architecture_only_E.png",
+    "approved_sha256": "d3218475b0f68817f4981dfdf9d0766eb3731445378682af5be7928bf2b03be8",
+    "architecture_sha256": "75a1a49a3063825c7e7e9c8419915fa1a3590fd5730d4b5face80cf9269191e5",
+    "rear_frames_removed": 3,
+    "changed_pixels_within_frame_bounds": 64512,
+    "changed_pixels_outside_frame_bounds": 0,
+    "removal_bounding_rectangles": [
+      [
+        69,
+        73,
+        241,
+        169
+      ],
+      [
+        343,
+        60,
+        605,
+        180
+      ],
+      [
+        714,
+        73,
+        877,
+        169
+      ]
+    ],
+    "method": "Exact already-preserved E architecture, referenced by G renderer",
+    "status": "candidate_for_user_review_not_game_integrated"
+  },
+  {
+    "room": "gallery4",
+    "approved_source": "rooms/gallery4/gallery4_A_rear.png",
+    "architecture_base": "rooms/gallery4/architecture_only_A.png",
+    "approved_sha256": "2fc1c58c9896853edf7477b05ff09f77485550fd70404152c4d170005abdf116",
+    "architecture_sha256": "fbf78f84fd88bc202beaa8a090e6607ce8d6ed96a00fea0f8fcab71047b694da",
+    "rear_frames_removed": 4,
+    "changed_pixels_within_frame_bounds": 67500,
+    "changed_pixels_outside_frame_bounds": 0,
+    "removal_bounding_rectangles": [
+      [
+        125,
+        39,
+        223,
+        182
+      ],
+      [
+        294,
+        69,
+        487,
+        174
+      ],
+      [
+        541,
+        39,
+        641,
+        182
+      ],
+      [
+        693,
+        69,
+        864,
+        174
+      ]
+    ],
+    "method": "Exact already-preserved A architecture before four built-in frames",
+    "status": "candidate_for_user_review_not_game_integrated"
+  },
+  {
+    "room": "gallery5",
+    "approved_source": "rooms/gallery5/gallery5_palace_E.png",
+    "architecture_base": "rooms/gallery5/gallery5_palace_architecture_fixed_E_v01.png",
+    "approved_sha256": "05b0e1f5d05c6a1eb016f0b8022b472590f622b19cd3f41c25ba690881a9ce1f",
+    "architecture_sha256": "6a496384a2913d258dd8d146dc1954693d1f54fafe0f4f28a8a3a92b61345df9",
+    "rear_frames_removed": 3,
+    "changed_pixels_within_frame_bounds": 71295,
+    "changed_pixels_outside_frame_bounds": 0,
+    "removal_bounding_rectangles": [
+      [
+        202,
+        45,
+        328,
+        212
+      ],
+      [
+        329,
+        46,
+        599,
+        225
+      ],
+      [
+        609,
+        45,
+        735,
+        212
+      ]
+    ],
+    "method": "Preserved palace E architecture + exact approved fixed sconces, vault lights and curtains from source generator, with 3 display frames excluded",
+    "status": "candidate_for_user_review_not_game_integrated"
+  }
+]
