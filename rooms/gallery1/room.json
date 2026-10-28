@@ -1,0 +1,57 @@
+{
+  "schema": "a18-gallery-editor/room-v1",
+  "id": "gallery1",
+  "name": "展示室1",
+  "subtitle": "B案・案内台175px／奥の出口は展示室3",
+  "size": {
+    "width": 930,
+    "height": 582
+  },
+  "entrance": "東側：エントランス",
+  "exit": "北側：展示室3",
+  "background": "rooms/gallery1/architecture.png",
+  "foreground": "rooms/gallery1/side-walls.png",
+  "objects": [
+    {
+      "id": "wall4",
+      "label": "展示壁④",
+      "image": "rooms/gallery1/wall4.png",
+      "rect": {
+        "x": 132,
+        "y": 328,
+        "w": 240,
+        "h": 182
+      }
+    },
+    {
+      "id": "wall5",
+      "label": "展示壁⑤",
+      "image": "rooms/gallery1/wall5.png",
+      "rect": {
+        "x": 628,
+        "y": 286,
+        "w": 240,
+        "h": 182
+      }
+    },
+    {
+      "id": "counter",
+      "label": "案内台",
+      "image": "rooms/gallery1/counter175.png",
+      "rect": {
+        "x": 425,
+        "y": 396,
+        "w": 175,
+        "h": 96
+      }
+    }
+  ],
+  "limits": {
+    "left": 42,
+    "right": 42,
+    "top": 220,
+    "bottom": 14,
+    "clearRearCorridorY": 275
+  },
+  "origin": "A18 official entrance Lv1 materials + gallery1 v05 P layout; concept editor, not game data"
+}

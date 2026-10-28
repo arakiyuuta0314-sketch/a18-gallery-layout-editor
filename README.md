@@ -1,7 +1,33 @@
-# A18 Gallery Layout Editor
+# A18 展示室・共通レイアウトエディター
 
-A dedicated **review-only** editor for movable art-gallery elements in A18. This is not the game repository and never changes actual player saves or public game releases.
+「とっておき美術館」展示室の配置監修専用のWebサイトです。公開中のゲーム本体や作品の保存データには一切接続しません。
 
-Deployment for review may track an isolated `work/` branch, without merging unapproved layouts to `main`.
+## 使用方法
 
-See `AGENTS.md` for mandatory Git and source-preservation rules.
+1. [配置エディター](https://arakiyuuta0314-sketch.github.io/a18-gallery-layout-editor/?room=gallery1) をブラウザで開く。
+2. 展示室1の展示壁④・⑤、案内台を指／マウスでドラッグする。ドラッグせずに左右を見るときは「スクロールで鑑賞」モードを使用する。
+3. X/Y座標の直接入力、±1px・±10pxの位置調整も可能。プレビュー上での変更は同じブラウザにのみ自動保存される。
+4. 「座標をコピー」でJSONをチャットへ貼り付ける、または「JSON保存」する。別端末はJSONの読み込みで復元できる。
+
+**初期配置**：展示壁④=(132,328,240,182)、展示壁⑤=(628,286,240,182)、案内台=(425,396,175,96)。カウンターの旧幅205pxから左右各15px縮小、中心は維持。背景・左右壁・奥の展示3枠・北側出口は固定。
+
+## 他の展示室の追加
+
+エディターのプログラム本体は各展示室に依存しません。展示室を追加するときは、既存の `rooms/gallery1/` を参照し、**新しい実素材が用意できてから**次の操作を行います。
+
+1. `rooms/gallery2/` 等のディレクトリを用意し、背景画像・前景画像・移動可能な設備の透過画像を保存します。元画像は変更せず、あくまでプレビュー用のコピーを配置します。
+2. `rooms/gallery2/room.json` を作成します。必須プロパティ：`schema`、`id`、`name`、`size` (width/height)、`background`、`foreground`、`objects`。各objectは一意な`id`・`label`・`image`・`rect` (x,y,w,h)を設定します。
+3. `rooms/catalog.json` にこの展示室の `{id,name,config}` を一行追加します。
+4. 既存の `editor.js` / `index.html` を改変せずにドロップダウンから切替可能。保存キーは展示室IDごとに独立し、配置JSONにもIDを含めるため別室の配置の誤読込を拒否します。
+5. 静的配信で全素材読み込み、画面幅390px以上での操作・横スクロール・保存・インポートを回帰試験します。
+
+`room.json` の `limits` は簡易警告のみ。衝突判定の厳密な代替にはなりません。正式なゲーム配置、部屋ID、展示数、出入口の接続は本体で別途実装・QAが必要です。
+
+## 公開・Git運用
+
+このリポジトリは**監修用プレビュー専用**。ゲーム本体 `web-tools-preview`、美術監修用 `a18-art-previews`、試遊公開 `a18-totteoki-museum-pages` と分離しています。
+
+- `main`：このリポジトリの基礎・保護対象。ユーザー指示なしで作業中のプレビューを統合しない。
+- `issue/a18-gallery-layout-preview-20261028`：課題統合先（まだ未統合）。
+- `work/a18-gallery-layout-preview-20261028`：現在のプレビュー開発・配信ブランチ。プレビューのみこのブランチから配信し、ゲーム正式版とは明確に区別する。
+- QA: `python qa/check_editor.py`。専用ChromeによるPC・スマホ幅の動作確認。

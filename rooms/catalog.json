@@ -1,0 +1,10 @@
+{
+  "schema": "a18-gallery-editor/catalog-v1",
+  "rooms": [
+    {
+      "id": "gallery1",
+      "name": "展示室1",
+      "config": "rooms/gallery1/room.json"
+    }
+  ]
+}
