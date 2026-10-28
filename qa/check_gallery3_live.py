@@ -15,17 +15,19 @@ try:
    ctx=browser.new_context(viewport={'width':width,'height':850})
    page=ctx.new_page();errors=[]
    page.on('pageerror',lambda e:errors.append(str(e)))
-   res=page.goto(f'http://127.0.0.1:{server.server_port}/?room=gallery3&rev=F-qa',wait_until='networkidle')
+   res=page.goto(f'http://127.0.0.1:{server.server_port}/?room=gallery3&rev=G-qa',wait_until='networkidle')
    assert res.status==200
    page.wait_for_function('window.__A18_LAYOUT_EDITOR__ && window.__A18_LAYOUT_EDITOR__.getState().roomId === "gallery3"')
    state=page.evaluate('window.__A18_LAYOUT_EDITOR__.getState()')
-   # F layout draft: 3 baked rear frames plus 2 movable walls, total exactly 5.
+   # G proposal: 3 fixed rear frames (2 enlarged) + 2 perspective-skewed movable walls.
    assert len(state['objects'])==2,state
    assert set(state['objects'])=={'wall4','wall5'},state
+   assert state['objects']['wall4']=={'x':119,'y':314,'w':232,'h':198},state
+   assert state['objects']['wall5']=={'x':578,'y':312,'w':232,'h':198},state
    assert state['roomId']=='gallery3',state
    assert page.locator('#zoom').input_value()==('.35' if width==390 else '.8')
    assert all(e.evaluate('e=>e.complete && e.naturalWidth>0') for e in page.locator('#stage img').all())
-   assert all('rev=F-qa' in src for src in page.locator('#stage img').evaluate_all('(els)=>els.map(e=>e.src)'))
+   assert all('rev=G-qa' in src for src in page.locator('#stage img').evaluate_all('(els)=>els.map(e=>e.src)'))
    assert not errors,errors
    page.screenshot(path=str(root/'rooms/gallery3'/f'editor_gallery3_{width}.png'),full_page=True)
    print('PASS gallery3',width,state['objects'])

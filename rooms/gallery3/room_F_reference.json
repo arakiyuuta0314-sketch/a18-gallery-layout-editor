@@ -1,0 +1,48 @@
+{
+  "schema": "a18-gallery-editor/room-v1",
+  "id": "gallery3",
+  "name": "展示室3",
+  "subtitle": "F配置案：奥の3枠＋独立展示壁2枠（建築E案は承認済み）",
+  "previewFocusX": 469,
+  "size": {
+    "width": 930,
+    "height": 582
+  },
+  "entrance": "南：展示室1（画面下中央）",
+  "exit": "東：展示室5（右側面アーチ、Lv.6開放）",
+  "background": "rooms/gallery3/gallery3_layout_F_rear_frames.png",
+  "foreground": "rooms/gallery3/foreground.png",
+  "objects": [
+    {
+      "id": "wall4",
+      "label": "独立展示壁④",
+      "image": "rooms/gallery3/wall4.png",
+      "rect": {
+        "x": 125,
+        "y": 334,
+        "w": 215,
+        "h": 176
+      }
+    },
+    {
+      "id": "wall5",
+      "label": "独立展示壁⑤",
+      "image": "rooms/gallery3/wall5.png",
+      "rect": {
+        "x": 579,
+        "y": 301,
+        "w": 204,
+        "h": 176
+      }
+    }
+  ],
+  "limits": {
+    "left": 40,
+    "right": 40,
+    "top": 270,
+    "bottom": 18
+  },
+  "layoutRevision": "gallery3-E-architecture-approved-F-five-frames-unapproved-20261029",
+  "status": "E architecture approved; F frame placement pending user review",
+  "notes": "Exactly five exhibit slots: fixed rear 1-3 and movable wall4-5. Preserve original E image. Dedicated guide staff and interaction/collision/depth validation pending."
+}
