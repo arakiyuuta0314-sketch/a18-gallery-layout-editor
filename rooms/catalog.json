@@ -13,7 +13,7 @@
     },
     {
       "id": "gallery3",
-      "name": "展示室3（建築E案・未承認）",
+      "name": "展示室3（建築E承認・F配置案）",
       "config": "rooms/gallery3/room.json"
     }
   ]

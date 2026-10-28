@@ -19,8 +19,9 @@ try:
    assert res.status==200
    page.wait_for_function('window.__A18_LAYOUT_EDITOR__ && window.__A18_LAYOUT_EDITOR__.getState().roomId === "gallery3"')
    state=page.evaluate('window.__A18_LAYOUT_EDITOR__.getState()')
-   # E is architectural study: deliberately zero fixtures until layout approval.
-   assert len(state['objects'])==0,state
+   # F layout draft: 3 baked rear frames plus 2 movable walls, total exactly 5.
+   assert len(state['objects'])==2,state
+   assert set(state['objects'])=={'wall4','wall5'},state
    assert state['roomId']=='gallery3',state
    assert page.locator('#zoom').input_value()==('.35' if width==390 else '.8')
    assert all(e.evaluate('e=>e.complete && e.naturalWidth>0') for e in page.locator('#stage img').all())
