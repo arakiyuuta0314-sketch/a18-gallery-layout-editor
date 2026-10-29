@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>展示室5｜中央の存在感を戻す v15 比較</title>
+<title>展示室5｜中央が上下に張り出す v16 比較</title>
 <style>
 :root{color-scheme:light}
 *{box-sizing:border-box}body{margin:0;background:#edeae3;color:#273b30;font:15px/1.58 system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
@@ -25,8 +25,8 @@ th{background:#f5f1e9}
 </style></head>
 <body><main>
 <header>
-<h1>展示室5｜中央の存在感を戻した v15</h1>
-<p class="sub">前回のC案と、新しいv15を比較。中央は270×240pxのまま、左右だけ125×205pxに控えめに調整しました。3枚の下端（338px）と通路は変えていません。</p>
+<h1>展示室5｜中央が上下に張り出す v16</h1>
+<p class="sub">v15と、元のE案の高低差を戻したv16を比較。中央270×240pxはそのまま、左右125×191pxにして、中央が上へ35px・下へ14px張り出す形にしました。通路・柱は変更していません。</p>
 <div class="links">
 <a href="../frame-adjuster/">下だけ伸ばす調整ページに戻る</a>
 <a href="../">建築比較ページ</a>
@@ -34,10 +34,16 @@ th{background:#f5f1e9}
 </header>
 <div class="grid">
 <article class="card">
-<h2>v15｜中央の存在感を戻した案（今回・未承認）</h2>
-<p class="small">中央はそのまま。左右だけ少し小さくし、主展示との大きさの差を戻しました。</p>
+<h2>v16｜中央が上下に張り出す新案（未承認）</h2>
+<p class="small">元のE案と同様、中央が左右より上下とも大きく見える構造へ戻しました。</p>
+<a class="image" href="e_central_projection_v16.png"><img src="e_central_projection_v16.png?v=16" alt="展示室5 v16：中央が左右より上35px、下14px張り出す実素材" width="930" height="582"></a>
+<p class="detail">左右 <strong>125 × 191px</strong> ／ 中央 <strong>270 × 240px</strong>。中央の上端98px・下端338px、左右の上端133px・下端324px。</p>
+</article>
+<article class="card">
+<h2>v15｜下端を揃えた前回案（未承認）</h2>
+<p class="small">中央と左右にサイズ差はありますが、3枚の下端が同じ高さでした。</p>
 <a class="image" href="d_central_emphasis_v15.png"><img src="d_central_emphasis_v15.png?v=15" alt="v15案：中央の額縁はそのまま、左右の額縁を少し小さくして主役が明確になった展示室5" width="930" height="582"></a>
-<p class="detail">左右 <strong>125 × 205px</strong> ／ 中央 <strong>270 × 240px</strong>。3枚の下端は338pxで統一。壁・柱・左右の通路は従来どおり。</p>
+<p class="detail">左右 125 × 205px ／ 中央 270 × 240px。下端が338pxで揃っていた案。</p>
 </article>
 <article class="card">
 <h2>前回のC案｜中央と左右の高さが近い</h2>
@@ -66,10 +72,10 @@ th{background:#f5f1e9}
 </div>
 <table aria-label="新旧案の比較">
 <thead><tr><th>比較</th><th>下端</th><th>上端</th><th>元の縦横比</th></tr></thead>
-<tbody><tr><td>v15：中央強調</td><td>338px</td><td>中央98px／左右133px</td><td>中央が明確に大きい</td></tr><tr><td>A：下へ延長</td><td>338px</td><td>固定</td><td>崩れる</td></tr>
+<tbody><tr><td>v16：上下の張り出し</td><td>中央338px／左右324px</td><td>中央98px／左右133px</td><td>中央が上下に突出</td></tr><tr><td>v15：下端統一</td><td>全て338px</td><td>中央98px／左右133px</td><td>上下の差は片側だけ</td></tr><tr><td>A：下へ延長</td><td>338px</td><td>固定</td><td>崩れる</td></tr>
 <tr><td>C：折衷</td><td>338px</td><td>30px下げる</td><td>やや変わる</td></tr>
 <tr><td>B：比率を保持</td><td>338px</td><td>60px下げる</td><td>維持</td></tr></tbody>
 </table>
-<p class="notice">厳密に「上端固定・下へ60px延長・元の縦横比のまま」を全部同時に満たすと、今の展示壁幅に収まりません（必要な横幅は約700px、実際の背面壁は約562px）。そのため今回は建築構造を変えずに比較しています。</p>
-<p class="notice">v15を含めすべて未承認の比較用です。承認済みE案、ゲーム本体、移動判定、保存データ、Gitのissue/mainは変更しません。</p>
+<p class="notice">v16は中央の額縁の面積と横長比率を変更せず、左右の額縁の下端を14px上げることで中央の上下突出を実現しました。背景は既存の実素材で、左右通路・柱・壁の構造は変えていません。</p>
+<p class="notice">v16を含めすべて未承認の比較用です。承認済みE案、ゲーム本体、移動判定、保存データ、Gitのissue/mainは変更しません。</p>
 </main></body></html>
