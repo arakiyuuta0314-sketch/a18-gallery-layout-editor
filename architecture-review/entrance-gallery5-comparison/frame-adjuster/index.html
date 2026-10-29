@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>展示室5｜実素材・3額縁サイズ調整</title>
+<title>展示室5｜3額縁を下方向へ伸ばすプレビュー</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#26382e;background:#efede7}
 *{box-sizing:border-box}
@@ -40,8 +40,8 @@ textarea{width:100%;min-height:100px;border:1px solid #d5d0c4;border-radius:8px;
 </head>
 <body><main>
 <div class="head"><div>
-<h1>展示室5｜額縁サイズ調整</h1>
-<p class="muted">承認済みE案・v14の実素材を使用。中央も左右も共通倍率で変化します。写真を飾ったときの見えやすさを、入口視点で確認できます。</p>
+<h1>展示室5｜額縁を下へ伸ばす</h1>
+<p class="muted">v14の実素材を使った調整ページです。<strong>上の位置・横幅は固定</strong>。3枚とも同じpx数だけ下へ長くできます。</p>
 </div><a href="../">建築比較ページに戻る</a></div>
 <div class="grid">
 <section class="card art" aria-label="額縁サイズ可変プレビュー">
@@ -49,33 +49,20 @@ textarea{width:100%;min-height:100px;border:1px solid #d5d0c4;border-radius:8px;
 <canvas id="stage" width="930" height="582" aria-label="展示室5の建築背景と拡大縮小できる3枚の金額縁"></canvas>
 <div class="metrics"><div id="leftMetric"></div><div id="centerMetric"></div><div id="rightMetric"></div></div>
 <p id="warning" role="status" aria-live="polite"></p>
-<p class="muted">背面の壁と絨毯の境目も額縁の高さに連動する比較用の表現です。ゲーム内の移動距離や判定は変わりません。</p>
+<p class="muted">額縁の上端は左・右76px、中央68pxのまま動きません。背面壁と絨毯の境目のみ下へ移動し、通路・柱は固定です。</p>
 </section>
 <section class="card panel">
-<h2>サイズを変える</h2>
-<p class="muted">中央だけ大きくせず、縦・横それぞれ<strong>3枚共通</strong>の倍率です。3枚の下端は揃えています。</p>
+<h2>下方向だけ長くする</h2>
+<p class="muted"><strong>上端は一切動かしません。</strong> 左右も中央も同じ長さだけ下へ伸びます。左右の幅・作品間隔・柱・通路は変更しません。</p>
 <div class="control">
-<label for="height"><span>3枚の高さ</span><output id="heightOut">100%</output></label>
-<input id="height" type="range" min="80" max="150" step="1" value="100">
-<p class="help">写真を入口から大きく見せるための調整</p>
-</div>
-<div class="control">
-<label for="width"><span>3枚の横幅</span><output id="widthOut">100%</output></label>
-<input id="width" type="range" min="80" max="110" step="1" value="100">
-<p class="help">左・中央・右を同倍率で横に拡大します</p>
-</div>
-<div class="control">
-<label for="gap"><span>額縁の間隔</span><output id="gapOut">6px</output></label>
-<input id="gap" type="range" min="0" max="24" step="1" value="6">
-</div>
-<div class="control">
-<label for="bottom"><span>3枚の下端位置</span><output id="bottomOut">278px</output></label>
-<input id="bottom" type="range" min="230" max="365" step="1" value="278">
-<p class="help">下へ伸ばすほど背面の壁が広がり、床の見える範囲が短くなります</p>
+<label for="extend"><span>3枚とも下へ伸ばす長さ</span><output id="extendOut">+0px</output></label>
+<input id="extend" type="range" min="0" max="140" step="1" value="0">
+<p class="help">0px＝v14と同じ。増やすほど額縁の下端のみ下がります。</p>
 </div>
 <div class="actions">
-<button type="button" id="reset">v14相当に戻す</button>
-<button type="button" id="large">大きめを見る</button>
+<button type="button" id="reset">元に戻す（+0px）</button>
+<button type="button" id="medium">+60px</button>
+<button type="button" id="large">+100px</button>
 </div>
 <div class="control">
 <label for="json"><span>決定した配置</span><span class="muted">930 × 582 基準</span></label>
@@ -89,7 +76,7 @@ textarea{width:100%;min-height:100px;border:1px solid #d5d0c4;border-radius:8px;
 </div>
 <section class="card comparison"><h2>比較｜v14の固定背景</h2>
 <img src="../gallery5-v14.png" width="930" height="582" alt="修正前の展示室5 v14"/>
-<p class="muted">上の可変プレビューは、固定画像の上に枠線を重ねる方式ではありません。元の金装飾額縁を独立した透過画像として動かしています。</p>
+<p class="muted">元の金装飾額縁を独立した透過画像に分離して使用しています。下へ伸ばした際は上下の装飾を固定し、額縁の側面と作品部分だけを伸ばします。</p>
 </section>
 <p class="foot">これは承認前の素材監修プレビューです。E案の正本・ゲーム本体・保存データには変更していません。</p>
 </main>
@@ -97,86 +84,89 @@ textarea{width:100%;min-height:100px;border:1px solid #d5d0c4;border-radius:8px;
 (() => {
 "use strict";
 const W=930,H=582,WALL_LEFT=184,WALL_RIGHT=746;
-const inputs={height:document.getElementById("height"),width:document.getElementById("width"),gap:document.getElementById("gap"),bottom:document.getElementById("bottom")};
+const BASE_BOTTOM=278,BASE_WALL_END=292;
+const slider=document.getElementById("extend"),valueOut=document.getElementById("extendOut");
 const stage=document.getElementById("stage"),ctx=stage.getContext("2d",{alpha:false});
 const warning=document.getElementById("warning"),imageState=document.getElementById("imageState");
 const json=document.getElementById("json");
 const spriteData=[
-  {id:"left",label:"左",src:"frame_left.png",w:133,h:202,offsetX:6,offsetY:5},
-  {id:"center",label:"中央",src:"frame_center.png",w:270,h:202,offsetX:6,offsetY:5},
-  {id:"right",label:"右",src:"frame_right.png",w:133,h:202,offsetX:6,offsetY:5}
+  {id:"left",label:"左",src:"frame_left.png",x:190,y:76,w:133,h:202,padX:6,padY:5},
+  {id:"center",label:"中央",src:"frame_center.png",x:329,y:68,w:270,h:210,padX:6,padY:5},
+  {id:"right",label:"右",src:"frame_right.png",x:605,y:76,w:133,h:202,padX:6,padY:5}
 ];
 const images={};
 let ready=false,current=null;
-const load=(url)=>new Promise((resolve,reject)=>{
- const im=new Image();
- im.onload=()=>resolve(im);
- im.onerror=()=>reject(Error(url+" の読込に失敗"));
- im.src=url;
+const load=url=>new Promise((resolve,reject)=>{
+ const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error(url+" の読込に失敗"));im.src=url;
 });
-function value(k){return Number(inputs[k].value);}
 function calculate(){
- const widthPct=value("width"),heightPct=value("height"),gap=value("gap"),bottom=value("bottom");
- const widths=spriteData.map(s=>Math.round(s.w*widthPct/100));
- const heights=spriteData.map(s=>Math.round(s.h*heightPct/100));
- const total=widths.reduce((a,b)=>a+b,0)+gap*2;
- let cursor=Math.round((W-total)/2);
- const rects=spriteData.map((s,i)=>{const r={id:s.id,x:cursor,y:bottom-heights[i],w:widths[i],h:heights[i]};cursor+=widths[i]+gap;return r;});
- const wallEnd=Math.max(292,bottom+13);
- const fits=rects[0].x>=WALL_LEFT+2 && rects[2].x+rects[2].w<=WALL_RIGHT-2 && wallEnd<=410 && rects.every(r=>r.y>=58);
- return {schema:"a18-gallery5-frame-adjust/v1",base:"v14",canvas:{width:W,height:H},widthPercent:widthPct,heightPercent:heightPct,gap,bottom,wallEnd,rects,valid:fits};
+ const extendDownPx=Number(slider.value);
+ const rects=spriteData.map(s=>({id:s.id,x:s.x,y:s.y,w:s.w,h:s.h+extendDownPx,topFixed:s.y,bottom:s.y+s.h+extendDownPx}));
+ const wallEnd=BASE_WALL_END+extendDownPx;
+ const valid=wallEnd<=432 && rects.every(r=>r.x>=WALL_LEFT && r.x+r.w<=WALL_RIGHT && r.y>=58);
+ return {schema:"a18-gallery5-frame-adjust/v2",base:"v14",direction:"down-only",
+  canvas:{width:W,height:H},extendDownPx,wallEnd,rects,valid};
 }
-function renderBackground(wallEnd){
+// Render the actual walnut wall higher in the visual order, keeping its original
+// y=0..280 pixels intact. Only the lower rear-wall/floor seam is extended.
+function renderBackground(extra){
  ctx.drawImage(images.base,0,0,W,H);
- if(wallEnd!==292){
-   // Only replace the REAR wall / floor. The side corridors and columns are untouched.
-   const l=WALL_LEFT,r=WALL_RIGHT,ww=r-l;
-   ctx.save();ctx.beginPath();ctx.rect(l,146,ww,H-146);ctx.clip();
-   // Existing real walnut paneling extended to match the chosen large frames.
-   ctx.drawImage(images.base,l,146,ww,140,l,146,ww,wallEnd-146-6);
-   // Floor and runner keep their original perspective footprint at the lower edge.
-   ctx.drawImage(images.base,l,292,ww,H-292,l,wallEnd,ww,H-wallEnd);
-   // The lower edge of the actual walnut skirting is moved to the new seam.
-   ctx.drawImage(images.base,l,286,ww,6,l,wallEnd-6,ww,6);
-   ctx.restore();
- }
+ if(extra===0)return;
+ const l=WALL_LEFT,ww=WALL_RIGHT-WALL_LEFT;
+ ctx.save();
+ ctx.beginPath();ctx.rect(l,280,ww,H-280);ctx.clip();
+ // Extend only the BOTTOM of the rear walnut panel, never the top arch/pillars.
+ ctx.drawImage(images.base,l,224,ww,62,l,280,ww,extra+6);
+ // Move skirting and foreshorten the same existing stone floor and runner.
+ ctx.drawImage(images.base,l,286,ww,6,l,286+extra,ww,6);
+ ctx.drawImage(images.base,l,292,ww,H-292,l,292+extra,ww,H-292-extra);
+ ctx.restore();
+}
+// Draw the real transparent frame with a vertical 3-slice:
+// upper and lower gold ornaments keep their native height, while the middle
+// timber rails/teal picture area stretch only downwards.
+function drawExtendedFrame(im,s,extra){
+ const x=s.x-s.padX,y=s.y-s.padY,sourceW=im.naturalWidth,sourceH=im.naturalHeight;
+ const capTop=43,capBottom=39;
+ const sourceMiddle=sourceH-capTop-capBottom;
+ const destMiddle=sourceMiddle+extra;
+ ctx.drawImage(im,0,0,sourceW,capTop,x,y,sourceW,capTop);
+ ctx.drawImage(im,0,capTop,sourceW,sourceMiddle,x,y+capTop,sourceW,destMiddle);
+ ctx.drawImage(im,0,sourceH-capBottom,sourceW,capBottom,x,y+capTop+destMiddle,sourceW,capBottom);
 }
 function render(){
  const data=calculate();current=data;
- for(const k of Object.keys(inputs))document.getElementById(k+"Out").textContent=value(k)+(k==="width"||k==="height"?"%":"px");
+ valueOut.textContent="+"+data.extendDownPx+"px";
  json.value=JSON.stringify(data,null,2);
- data.rects.forEach((r,i)=>{
-   document.getElementById(["left","center","right"][i]+"Metric").innerHTML="<strong>"+spriteData[i].label+"額縁</strong><div>"+r.w+" × "+r.h+" px</div><div>下端 "+(r.y+r.h)+" px</div>";
- });
+ for(let i=0;i<3;i++){
+  const r=data.rects[i],title=spriteData[i].label;
+  document.getElementById(["left","center","right"][i]+"Metric").innerHTML=
+  "<strong>"+title+"額縁</strong><div>"+r.w+" × "+r.h+" px</div><div>上端 "+r.y+"px／下端 "+r.bottom+"px</div>";
+ }
  warning.className=data.valid?"good":"";
- warning.textContent=data.valid?"配置OK：額縁が壁内に収まり、通路には重なっていません。":"壁からはみ出す配置です。横幅・間隔・下端を調整してください。";
+ warning.textContent=data.valid?
+ "配置OK：上端・横幅は固定。3枚とも下へ+"+data.extendDownPx+"px伸びています。":
+ "この延長は背面壁からはみ出します。調整してください。";
  document.getElementById("copy").disabled=!data.valid;
- document.getElementById("save").disabled=!data.valid || !ready;
+ document.getElementById("save").disabled=!data.valid||!ready;
  if(!ready)return;
  ctx.clearRect(0,0,W,H);
- renderBackground(data.wallEnd);
- for(let i=0;i<3;i++){
-   const r=data.rects[i],s=spriteData[i],im=images[s.id];
-   const sx=r.w/s.w,sy=r.h/s.h;
-   ctx.drawImage(im,r.x-s.offsetX*sx,r.y-s.offsetY*sy,im.naturalWidth*sx,im.naturalHeight*sy);
- }
+ renderBackground(data.extendDownPx);
+ for(const s of spriteData)drawExtendedFrame(images[s.id],s,data.extendDownPx);
 }
-Object.values(inputs).forEach(input=>input.addEventListener("input",render));
-function setAll(data){
- for(const [k,v] of Object.entries(data)) inputs[k].value=String(v);
- render();
-}
-document.getElementById("reset").onclick=()=>setAll({height:100,width:100,gap:6,bottom:278});
-document.getElementById("large").onclick=()=>setAll({height:125,width:100,gap:6,bottom:334});
+slider.addEventListener("input",render);
+document.getElementById("reset").onclick=()=>{slider.value="0";render()};
+document.getElementById("medium").onclick=()=>{slider.value="60";render()};
+document.getElementById("large").onclick=()=>{slider.value="100";render()};
 document.getElementById("copy").onclick=async()=>{
  if(!current?.valid)return;
- const text=json.value,button=document.getElementById("copy");
- try{await navigator.clipboard.writeText(text);button.textContent="コピーしました";}
+ const button=document.getElementById("copy");
+ try{await navigator.clipboard.writeText(json.value);button.textContent="コピーしました";}
  catch{json.focus();json.select();button.textContent="選択しました。コピーしてください";}
 };
 document.getElementById("save").onclick=()=>{
  if(!current?.valid||!ready)return;
- const a=document.createElement("a");a.download="gallery5_frame_adjust_preview.png";a.href=stage.toDataURL("image/png");a.click();
+ const a=document.createElement("a");a.download="gallery5_frames_extended_down.png";a.href=stage.toDataURL("image/png");a.click();
 };
 render();
 Promise.all([load("gallery5_unframed.png"),...spriteData.map(s=>load(s.src))]).then(([base,...frames])=>{
