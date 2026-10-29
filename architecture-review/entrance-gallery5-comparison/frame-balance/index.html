@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>展示室5｜+60px額縁の形・比較</title>
+<title>展示室5｜中央の存在感を戻す v15 比較</title>
 <style>
 :root{color-scheme:light}
 *{box-sizing:border-box}body{margin:0;background:#edeae3;color:#273b30;font:15px/1.58 system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
@@ -25,8 +25,8 @@ th{background:#f5f1e9}
 </style></head>
 <body><main>
 <header>
-<h1>展示室5｜+60pxの高さを、自然な形に整えると？</h1>
-<p class="sub">画像生成した架空の完成図ではなく、v14のゲーム用金額縁・壁・石床・絨毯を使った実素材比較です。3枚の下端はすべて同じ「338px」に揃えています。</p>
+<h1>展示室5｜中央の存在感を戻した v15</h1>
+<p class="sub">前回のC案と、新しいv15を比較。中央は270×240pxのまま、左右だけ125×205pxに控えめに調整しました。3枚の下端（338px）と通路は変えていません。</p>
 <div class="links">
 <a href="../frame-adjuster/">下だけ伸ばす調整ページに戻る</a>
 <a href="../">建築比較ページ</a>
@@ -34,16 +34,22 @@ th{background:#f5f1e9}
 </header>
 <div class="grid">
 <article class="card">
-<h2>A｜上端固定・下へ60px延長（現状の方向）</h2>
+<h2>v15｜中央の存在感を戻した案（今回・未承認）</h2>
+<p class="small">中央はそのまま。左右だけ少し小さくし、主展示との大きさの差を戻しました。</p>
+<a class="image" href="d_central_emphasis_v15.png"><img src="d_central_emphasis_v15.png?v=15" alt="v15案：中央の額縁はそのまま、左右の額縁を少し小さくして主役が明確になった展示室5" width="930" height="582"></a>
+<p class="detail">左右 <strong>125 × 205px</strong> ／ 中央 <strong>270 × 240px</strong>。3枚の下端は338pxで統一。壁・柱・左右の通路は従来どおり。</p>
+</article>
+<article class="card">
+<h2>前回のC案｜中央と左右の高さが近い</h2>
+<p class="small">v15との差を比較するため残しています。</p>
+<a class="image" href="c_compromise.png"><img src="c_compromise.png" alt="前回のC案" width="930" height="582"></a>
+<p class="detail">左右 133 × 232 ／ 中央 270 × 240。<strong>中央と左右の上下の差が小さい</strong></p>
+</article>
+<article class="card">
+<h2>A｜上端固定・下へ60px延長（旧比較）</h2>
 <p class="small">額縁が大きく目立つ一方、左右がかなり縦長になります。</p>
 <a class="image" href="a_full_extension.png"><img src="a_full_extension.png" alt="A案：上端を変えずに60px延長した実素材比較" width="930" height="582"></a>
 <p class="detail">左右 133 × 262 ／ 中央 270 × 270。<strong>上位置固定、純粋に下だけ拡張</strong></p>
-</article>
-<article class="card">
-<h2>C｜折衷：30px下げて、30px伸ばす</h2>
-<p class="small">中央の横長感を残しながら、展示全体を下へ大きく広げる中間案です。</p>
-<a class="image" href="c_compromise.png"><img src="c_compromise.png" alt="C案：上端を30px下げ、額縁を30px伸ばした実素材比較" width="930" height="582"></a>
-<p class="detail">左右 133 × 232 ／ 中央 270 × 240。<strong>元より大きく、横長感も一部維持</strong></p>
 </article>
 <article class="card">
 <h2>B｜元の比率そのまま、60px下へ移す</h2>
@@ -58,12 +64,12 @@ th{background:#f5f1e9}
 <p class="detail">元の下端 278px ／ 今回の比較はすべて下端 338px。</p>
 </article>
 </div>
-<table aria-label="3案の比較">
+<table aria-label="新旧案の比較">
 <thead><tr><th>比較</th><th>下端</th><th>上端</th><th>元の縦横比</th></tr></thead>
-<tbody><tr><td>A：下へ延長</td><td>338px</td><td>固定</td><td>崩れる</td></tr>
+<tbody><tr><td>v15：中央強調</td><td>338px</td><td>中央98px／左右133px</td><td>中央が明確に大きい</td></tr><tr><td>A：下へ延長</td><td>338px</td><td>固定</td><td>崩れる</td></tr>
 <tr><td>C：折衷</td><td>338px</td><td>30px下げる</td><td>やや変わる</td></tr>
 <tr><td>B：比率を保持</td><td>338px</td><td>60px下げる</td><td>維持</td></tr></tbody>
 </table>
 <p class="notice">厳密に「上端固定・下へ60px延長・元の縦横比のまま」を全部同時に満たすと、今の展示壁幅に収まりません（必要な横幅は約700px、実際の背面壁は約562px）。そのため今回は建築構造を変えずに比較しています。</p>
-<p class="notice">いずれも未承認の比較用です。承認済みE案、ゲーム本体、移動判定、保存データ、Gitのissue/mainは変更しません。</p>
+<p class="notice">v15を含めすべて未承認の比較用です。承認済みE案、ゲーム本体、移動判定、保存データ、Gitのissue/mainは変更しません。</p>
 </main></body></html>

@@ -14,6 +14,10 @@ disk=subprocess.check_output(["git","hash-object",str(e)],cwd=R,text=True).strip
 assert head==disk,(head,disk)
 data=json.loads((G/"variants.json").read_text(encoding="utf-8"))
 assert len(data)==3
+v15=json.loads((G/'v15_layout.json').read_text(encoding='utf-8'))
+assert v15['status']=='UNAPPROVED'
+assert [(v15['rects'][n]['w'],v15['rects'][n]['h']) for n in ('left','center','right')]==[(125,205),(270,240),(125,205)]
+assert {v['bottom'] for v in v15['rects'].values()}=={338}
 side_reference=Image.open(BASE/"frame-adjuster/gallery5_unframed.png").convert("RGB")
 for rec in data:
     image=Image.open(G/rec["image"]).convert("RGB")
@@ -24,7 +28,15 @@ for rec in data:
     for box in ((0,0,184,582),(746,0,930,582)):
         assert ImageChops.difference(image.crop(box),side_reference.crop(box)).getbbox() is None,(rec["id"],box)
 assert [data[0]["rects"]["left"]["h"],data[1]["rects"]["left"]["h"],data[2]["rects"]["left"]["h"]]==[262,202,232]
-print("ASSET geometry and preserved side architecture PASS")
+v15_img=Image.open(G/'d_central_emphasis_v15.png').convert('RGB')
+assert v15_img.size==(930,582)
+assert (R/'rooms/gallery5/gallery5_palace_E_material_v15_REVIEW.png').read_bytes()==(G/'d_central_emphasis_v15.png').read_bytes()
+assert (R/'architecture-review/gallery5/gallery5_v15_central_emphasis_REVIEW.png').read_bytes()==(G/'d_central_emphasis_v15.png').read_bytes()
+for box in ((0,0,184,582),(746,0,930,582)):
+    assert ImageChops.difference(v15_img.crop(box),side_reference.crop(box)).getbbox() is None
+c_img=Image.open(G/'c_compromise.png').convert('RGB')
+assert ImageChops.difference(v15_img,c_img).getbbox() is not None
+print('ASSET geometry, increased central-side hierarchy, and protected side architecture PASS')
 out=R/"qa/gallery5-frame-balance-review";out.mkdir(exist_ok=True)
 server=ThreadingHTTPServer(("127.0.0.1",0),partial(SimpleHTTPRequestHandler,directory=str(R)))
 threading.Thread(target=server.serve_forever,daemon=True).start()
@@ -37,12 +49,19 @@ try:
         res=page.goto(f"http://127.0.0.1:{server.server_port}/architecture-review/entrance-gallery5-comparison/frame-balance/",wait_until="load")
         assert res.status==200
         imgs=page.locator(".card img")
-        assert imgs.count()==4
+        assert imgs.count()==5
         assert imgs.evaluate_all("(els)=>els.every(el=>el.complete && el.naturalWidth===930 && el.naturalHeight===582)")
         assert page.locator("body").evaluate("(e)=>e.scrollWidth<=innerWidth+2")
         assert not errors,errors
         page.screenshot(path=str(out/f"balance_{w}.png"),full_page=True)
-        print("BROWSER",w,"PASS, four art assets loaded")
+        main=page.goto(f"http://127.0.0.1:{server.server_port}/architecture-review/entrance-gallery5-comparison/",wait_until="load")
+        assert main.status==200
+        assert "v15" in page.title()
+        assert page.locator('img[src^="gallery5-v15.png"]').count()==1
+        assert page.locator('img[src^="gallery5-v15.png"]').evaluate("(el)=>el.complete && el.naturalWidth===930")
+        assert page.locator("body").evaluate("(el)=>el.scrollWidth<=innerWidth+2")
+        assert not errors,errors
+        print('BROWSER',w,'PASS, balance images and main comparison v15')
         page.close()
     browser.close()
 finally:
