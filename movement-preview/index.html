@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A18 とっておき美術館｜全室移動QA</title>
+<style>
+:root{font:16px/1.55 system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#243c31;background:#f1f0ea}
+*{box-sizing:border-box}body{margin:0}header{background:#213d33;color:#fff;padding:12px 15px}header h1{font-size:clamp(19px,4vw,24px);margin:0}header p{font-size:12px;margin:3px 0 0;color:#e8e9df}main{max-width:1100px;margin:0 auto;padding:12px 10px 35px}
+.toolbar,.padrow,.settings,.links{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.toolbar{justify-content:space-between;margin:0 0 10px}
+button,select{font:inherit;color:#1d4632;border:1px solid #aabcae;border-radius:9px;background:#fff;padding:8px 12px;min-height:44px;cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #c8a45f;outline-offset:2px}
+#room-name{font-weight:800;font-size:18px}#visit-status{color:#647163;font-size:12px}
+#viewport{position:relative;width:100%;height:580px;border:2px solid #87754e;border-radius:11px;overflow:hidden;background:#11140e;touch-action:none}
+#world{position:absolute;width:930px;height:582px;transform-origin:0 0}#scene{display:block;width:930px;height:582px;image-rendering:auto}
+#busy{position:absolute;inset:0;display:grid;place-items:center;background:#172922eb;color:#fff;font-weight:700;z-index:8}
+#overlay{position:absolute;left:10px;top:10px;background:#162b22e0;color:#fff;border-radius:7px;padding:6px 9px;font-size:12px;pointer-events:none}
+#instructions{padding:7px 0 4px;font-size:13px;color:#48574f}
+#dpad{display:grid;grid-template-columns:repeat(3,59px);grid-template-rows:repeat(3,53px);gap:4px;justify-content:center;touch-action:none;user-select:none;margin:7px 0 12px}
+#dpad button{font-size:24px;padding:0;touch-action:none;background:#ecf3eb;user-select:none;border:2px solid #9eaf9e}
+#dpad button[data-dir]:active,#dpad button[data-dir].held{background:#b6d5be}
+#dpad .center{font-size:12px;color:#47624c;background:#e7e6d9}
+#links{padding:12px 4px;font-size:13px;gap:13px}a{color:#245b45}
+.notice{color:#5b695d;font-size:12px;line-height:1.7}
+#room-picker{max-width:210px}.settings{margin:6px 0;padding:9px 10px;background:white;border-radius:9px;border:1px solid #d9e1d4;font-size:13px}
+#map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:8px 0 9px}
+#map button{font-size:12px;min-height:39px;padding:7px 3px}#map button.active{color:white;background:#2d6d50}
+#qa-log{max-height:100px;overflow:auto;font:12px/1.45 ui-monospace,monospace;background:#fff;border-radius:8px;padding:8px;color:#405b48}
+@media(min-width:750px){#viewport{max-height:582px}#dpad{margin-top:8px}}
+</style></head><body>
+<header><h1>とっておき美術館｜全エリア移動チェック</h1><p>採用建築背景で歩行・通路・往復移動を確認するQA版（正式ゲームの保存データは変更しません）</p></header>
+<main>
+<div class="toolbar"><div><div id="room-name">準備中</div><div id="visit-status">6エリア・14方向をテスト</div></div>
+<div><label for="character">館長 </label><select id="character"><option value="curator">男性</option><option value="female">女性</option></select></div></div>
+<div id="viewport"><div id="world"><canvas id="scene" width="930" height="582" aria-label="キャラクターを歩かせて各展示室間を移動できます"></canvas></div>
+<div id="overlay">矢印・WASD ／ 画面下の方向ボタン</div><div id="busy">実素材を読み込み中…</div></div>
+<div id="instructions">光る矢印がエリアの出入口です。実際にそこまで歩いて通り抜けると隣のエリアに移ります。全エリア開放の検証設定です。</div>
+<div id="dpad" aria-label="歩行方向操作">
+<span></span><button type="button" data-dir="north" aria-label="上へ歩く">▲</button><span></span>
+<button type="button" data-dir="west" aria-label="左へ歩く">◀</button><button type="button" class="center" id="reset-pos">位置戻し</button><button type="button" data-dir="east" aria-label="右へ歩く">▶</button>
+<span></span><button type="button" data-dir="south" aria-label="下へ歩く">▼</button><span></span>
+</div>
+<div class="settings"><label>表示 <select id="zoom-mode"><option value="follow">追従カメラ</option><option value="full">全景表示</option></select></label>
+<label><input type="checkbox" id="show-portals" checked> 通路ガイドを表示</label>
+<label>移動速度 <select id="speed"><option value="190">標準</option><option value="290" selected>速め（QA）</option></select></label>
+</div>
+<p class="notice">実移動の確認用：右下のマップボタンで部屋を直接選ぶ機能はテスト用です。通路の接続確認はキャラクターを歩かせて行ってください。</p>
+<div id="map" aria-label="デバッグ用のエリア選択"></div>
+<div id="qa-log" role="status" aria-live="polite">操作待ち</div>
+<div id="links" class="links"><a href="../whole-museum-review/approved-backgrounds/">採用背景一覧</a><a href="../">レイアウト編集</a><a href="../architecture-review/entrance-gallery5-comparison/">展示室5 素材比較</a></div>
+<p class="notice">このページは当たり判定とエリア間移動を確認するための試遊QAです。既存ゲームの写真登録、保存データ、レベル進行、展示室5の旧5枠から3枠へのデータ移行は実装しません。入口建築は既存承認素材を比率維持で表示し、移動ガイドはQA用の重ね描きです。</p>
+</main><script src="movement.js?rev=20261030-v1"></script></body></html>
