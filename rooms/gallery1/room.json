@@ -9,7 +9,7 @@
   },
   "entrance": "東側：エントランス",
   "exit": "北側：展示室3",
-  "background": "rooms/gallery1/architecture.png",
+  "background": "rooms/gallery1/background_approved.png",
   "foreground": "rooms/gallery1/side-walls.png",
   "objects": [
     {

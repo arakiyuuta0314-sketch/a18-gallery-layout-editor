@@ -10,7 +10,7 @@
   },
   "entrance": "南：展示室1（画面下中央）",
   "exit": "東：展示室5（右側面アーチ、Lv.6開放）",
-  "background": "rooms/gallery3/gallery3_layout_G_rear_frames.png",
+  "background": "rooms/gallery3/background_approved.png",
   "foreground": "rooms/gallery3/foreground.png",
   "objects": [
     {

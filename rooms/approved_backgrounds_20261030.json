@@ -1,0 +1,47 @@
+{
+  "schema": "a18-layout-editor/approved-backgrounds-v1",
+  "size": [
+    930,
+    582
+  ],
+  "purpose": "layout preview background integration; gameplay rendering and collisions remain separate",
+  "galleryCount": 5,
+  "gallery5VisualBase": "v21; left2/center1/right3 only => v22",
+  "rooms": {
+    "gallery1": {
+      "decision": "v13 B; right passage top -24px; approved",
+      "asset": "rooms/gallery1/background_approved.png",
+      "sourceFile": "C:\\Users\\User\\source\\repos\\a18-gallery-layout-editor\\qa\\architecture-bases-20261029\\gallery1_v13_B_right_passage_top_lowered_24px_REVIEW.png",
+      "sha256": "fc06c616fa8664a03efd2d159ac4f346903dcf18f498b6605bb4c45ffb7a3308",
+      "previousBackground": "rooms/gallery1/architecture.png"
+    },
+    "gallery2": {
+      "decision": "A arrangement; architecture-only background, no baked rear frame numbers",
+      "asset": "rooms/gallery2/background_approved.png",
+      "sourceFile": "C:\\Users\\User\\source\\repos\\a18-gallery-layout-editor\\rooms\\gallery2\\architecture_only_v01.png",
+      "sha256": "c2f519420e869b377f9e4f12bfbe6e61c2091e49a42a4d11e30832085d9a6a70",
+      "previousBackground": "rooms/gallery2/architecture.png"
+    },
+    "gallery3": {
+      "decision": "v09 approved architecture structure; frame geometry not final",
+      "asset": "rooms/gallery3/background_approved.png",
+      "sourceFile": "C:\\Users\\User\\source\\repos\\a18-gallery-layout-editor\\qa\\architecture-bases-20261029\\gallery3_v09_architecture_south_passage_REVIEW.png",
+      "sha256": "80a74b6a511fa6881b2126c16d7a0fc4a478e2db4d9505be902a7fa3b72ff596",
+      "previousBackground": "rooms/gallery3/gallery3_layout_G_rear_frames.png"
+    },
+    "gallery4": {
+      "decision": "v01 plain west passage, no pillar; approved",
+      "asset": "rooms/gallery4/background_approved.png",
+      "sourceFile": "C:\\Users\\User\\source\\repos\\a18-gallery-layout-editor\\qa\\architecture-bases-20261029\\gallery4_v01_plain_west_passage_architecture_REVIEW.png",
+      "sha256": "1f77bb77a3633c5ec182ae80ce9f960ccd61379969d4b42d2ecdb296a5c6c8df",
+      "previousBackground": "rooms/gallery4/gallery4_A_rear.png"
+    },
+    "gallery5": {
+      "decision": "v21 adopted aesthetics; markers left 2 center 1 right 3; 3 frames",
+      "asset": "rooms/gallery5/background_approved.png",
+      "sourceFile": "C:\\Users\\User\\source\\repos\\a18-gallery5-material-review\\architecture-review\\entrance-gallery5-comparison\\gallery5-v22.png",
+      "sha256": "fb8f376f6d93dd3de09b6d12af988c130a9999bf0d47ba9e2f0bca6238a1a815",
+      "previousBackground": "rooms/gallery5/gallery5_palace_E.png"
+    }
+  }
+}

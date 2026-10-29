@@ -1,7 +1,7 @@
 {
   "schema": "a18-gallery-editor/room-v1",
   "id": "gallery2",
-  "name": "\u5c55\u793a\u5ba42",
+  "name": "展示室2",
   "subtitle": "A layout approved 2026-10-28",
   "size": {
     "width": 930,
@@ -9,7 +9,7 @@
   },
   "entrance": "West: entrance hall",
   "exit": "North: gallery4 (opens at museum level 5)",
-  "background": "rooms/gallery2/architecture.png",
+  "background": "rooms/gallery2/background_approved.png",
   "foreground": "rooms/gallery2/foreground.png",
   "objects": [
     {
