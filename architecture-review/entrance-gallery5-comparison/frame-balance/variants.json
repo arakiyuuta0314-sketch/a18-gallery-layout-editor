@@ -1,0 +1,95 @@
+[
+  {
+    "id": "a_full_extension",
+    "title": "A｜上端を固定して60px延長",
+    "image": "a_full_extension.png",
+    "rects": {
+      "left": {
+        "x": 190,
+        "y": 76,
+        "w": 133,
+        "h": 262,
+        "bottom": 338,
+        "aspect": 0.508
+      },
+      "center": {
+        "x": 329,
+        "y": 68,
+        "w": 270,
+        "h": 270,
+        "bottom": 338,
+        "aspect": 1.0
+      },
+      "right": {
+        "x": 605,
+        "y": 76,
+        "w": 133,
+        "h": 262,
+        "bottom": 338,
+        "aspect": 0.508
+      }
+    }
+  },
+  {
+    "id": "b_original_ratio",
+    "title": "B｜元の縦横比を維持し、下へ60px移動",
+    "image": "b_original_ratio.png",
+    "rects": {
+      "left": {
+        "x": 190,
+        "y": 136,
+        "w": 133,
+        "h": 202,
+        "bottom": 338,
+        "aspect": 0.658
+      },
+      "center": {
+        "x": 329,
+        "y": 128,
+        "w": 270,
+        "h": 210,
+        "bottom": 338,
+        "aspect": 1.286
+      },
+      "right": {
+        "x": 605,
+        "y": 136,
+        "w": 133,
+        "h": 202,
+        "bottom": 338,
+        "aspect": 0.658
+      }
+    }
+  },
+  {
+    "id": "c_compromise",
+    "title": "C｜30px下へ移動＋30px延長（折衷）",
+    "image": "c_compromise.png",
+    "rects": {
+      "left": {
+        "x": 190,
+        "y": 106,
+        "w": 133,
+        "h": 232,
+        "bottom": 338,
+        "aspect": 0.573
+      },
+      "center": {
+        "x": 329,
+        "y": 98,
+        "w": 270,
+        "h": 240,
+        "bottom": 338,
+        "aspect": 1.125
+      },
+      "right": {
+        "x": 605,
+        "y": 106,
+        "w": 133,
+        "h": 232,
+        "bottom": 338,
+        "aspect": 0.573
+      }
+    }
+  }
+]

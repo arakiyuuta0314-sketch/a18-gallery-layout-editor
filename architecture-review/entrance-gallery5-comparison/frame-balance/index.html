@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>展示室5｜+60px額縁の形・比較</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}body{margin:0;background:#edeae3;color:#273b30;font:15px/1.58 system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+main{max-width:1420px;margin:auto;padding:13px clamp(9px,2.5vw,25px) 50px}
+header{margin-bottom:15px}h1{font-size:clamp(20px,3vw,28px);line-height:1.35;margin:3px 0 6px}
+p{margin:4px 0 10px}.sub{color:#5c655e;font-size:13px}.links{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 12px}
+a{color:#285b42;text-underline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:#fff;border-radius:11px;border:1px solid #d8d2c6;box-shadow:0 2px 8px #142a170b;overflow:hidden}
+.card h2{font-size:16px;margin:0;padding:12px 13px 5px}
+.card .small{font-size:13px;color:#576259;margin:0;padding:0 13px 9px}
+.image{display:block;background:#241e1a}
+.image img{display:block;width:100%;height:auto}
+.detail{margin:0;padding:9px 13px 13px;font-size:13px;color:#424b44}
+.detail strong{color:#7b3542}
+.spanall{grid-column:1/-1}
+.notice{margin-top:14px;font-size:13px;color:#58645b}
+table{width:100%;border-collapse:collapse;margin:10px 0 13px;font-size:13px;background:#fff}
+th,td{border-bottom:1px solid #ddd8cc;text-align:left;padding:9px 10px}
+th{background:#f5f1e9}
+@media(max-width:800px){.grid{grid-template-columns:1fr;gap:12px}main{padding:12px 8px 32px}.card h2{font-size:15px}}
+</style></head>
+<body><main>
+<header>
+<h1>展示室5｜+60pxの高さを、自然な形に整えると？</h1>
+<p class="sub">画像生成した架空の完成図ではなく、v14のゲーム用金額縁・壁・石床・絨毯を使った実素材比較です。3枚の下端はすべて同じ「338px」に揃えています。</p>
+<div class="links">
+<a href="../frame-adjuster/">下だけ伸ばす調整ページに戻る</a>
+<a href="../">建築比較ページ</a>
+</div>
+</header>
+<div class="grid">
+<article class="card">
+<h2>A｜上端固定・下へ60px延長（現状の方向）</h2>
+<p class="small">額縁が大きく目立つ一方、左右がかなり縦長になります。</p>
+<a class="image" href="a_full_extension.png"><img src="a_full_extension.png" alt="A案：上端を変えずに60px延長した実素材比較" width="930" height="582"></a>
+<p class="detail">左右 133 × 262 ／ 中央 270 × 270。<strong>上位置固定、純粋に下だけ拡張</strong></p>
+</article>
+<article class="card">
+<h2>C｜折衷：30px下げて、30px伸ばす</h2>
+<p class="small">中央の横長感を残しながら、展示全体を下へ大きく広げる中間案です。</p>
+<a class="image" href="c_compromise.png"><img src="c_compromise.png" alt="C案：上端を30px下げ、額縁を30px伸ばした実素材比較" width="930" height="582"></a>
+<p class="detail">左右 133 × 232 ／ 中央 270 × 240。<strong>元より大きく、横長感も一部維持</strong></p>
+</article>
+<article class="card">
+<h2>B｜元の比率そのまま、60px下へ移す</h2>
+<p class="small">写真の形は元通り。ただし額縁自体の面積は増えません。</p>
+<a class="image" href="b_original_ratio.png"><img src="b_original_ratio.png" alt="B案：元の縦横比で額縁を下に60px動かした実素材比較" width="930" height="582"></a>
+<p class="detail">左右 133 × 202 ／ 中央 270 × 210。<strong>比率維持。ただし上の空間が広くなる</strong></p>
+</article>
+<article class="card">
+<h2>参考｜元のv14</h2>
+<p class="small">+60pxにする前の額縁位置とサイズです。</p>
+<a class="image" href="../gallery5-v14.png"><img src="../gallery5-v14.png" alt="v14の実素材" width="930" height="582"></a>
+<p class="detail">元の下端 278px ／ 今回の比較はすべて下端 338px。</p>
+</article>
+</div>
+<table aria-label="3案の比較">
+<thead><tr><th>比較</th><th>下端</th><th>上端</th><th>元の縦横比</th></tr></thead>
+<tbody><tr><td>A：下へ延長</td><td>338px</td><td>固定</td><td>崩れる</td></tr>
+<tr><td>C：折衷</td><td>338px</td><td>30px下げる</td><td>やや変わる</td></tr>
+<tr><td>B：比率を保持</td><td>338px</td><td>60px下げる</td><td>維持</td></tr></tbody>
+</table>
+<p class="notice">厳密に「上端固定・下へ60px延長・元の縦横比のまま」を全部同時に満たすと、今の展示壁幅に収まりません（必要な横幅は約700px、実際の背面壁は約562px）。そのため今回は建築構造を変えずに比較しています。</p>
+<p class="notice">いずれも未承認の比較用です。承認済みE案、ゲーム本体、移動判定、保存データ、Gitのissue/mainは変更しません。</p>
+</main></body></html>
